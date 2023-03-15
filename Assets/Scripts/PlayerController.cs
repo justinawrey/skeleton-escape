@@ -4,7 +4,8 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
   private Vector2 input;
-  private float lastOnGroundTime = 0f;
+  private float coyoteTimeCounter = 0f;
+  private float jumpBufferCounter = 0f;
   private bool groundCheckEnabled = true;
 
   public Rigidbody2D rb;
@@ -21,26 +22,42 @@ public class PlayerController : MonoBehaviour
   public float fallGravityMultiplier = 1.5f;
   public float jumpForce = 1f;
   public float jumpCutMultiplier = 0.1f;
-  public float coyoteTime = 1f;
+  public float coyoteTime = 0.15f;
+  public float jumpBuffer = 0.2f;
 
   private void Update()
   {
-    lastOnGroundTime -= Time.deltaTime;
+    coyoteTimeCounter -= Time.deltaTime;
 
     if (groundCheckEnabled && Grounded())
     {
-      lastOnGroundTime = coyoteTime;
+      coyoteTimeCounter = coyoteTime;
     }
 
     input.x = Input.GetAxisRaw("Horizontal");
     input.y = Input.GetAxisRaw("Vertical");
 
-    if (lastOnGroundTime > 0 && Input.GetKeyDown(KeyCode.Space))
+    if (Input.GetKeyDown(KeyCode.Space))
     {
-      lastOnGroundTime = 0;
+      jumpBufferCounter = jumpBuffer;
+    }
+    else
+    {
+      jumpBufferCounter -= Time.deltaTime;
+    }
+
+    if (coyoteTimeCounter > 0 && jumpBufferCounter > 0)
+    {
+      coyoteTimeCounter = 0;
+      jumpBufferCounter = 0;
       groundCheckEnabled = false;
 
       rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+      if (Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > 0)
+      {
+        rb.AddForce(Vector2.down * rb.velocity.y * (1 - jumpCutMultiplier), ForceMode2D.Impulse);
+      }
+
       StartCoroutine(GroundCheckDelayRoutine());
     }
 
