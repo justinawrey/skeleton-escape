@@ -941,7 +941,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 12
+      m_TileSpriteIndex: 11
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -951,7 +951,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 12
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -961,8 +961,8 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 12
-      m_TileMatrixIndex: 0
+      m_TileSpriteIndex: 11
+      m_TileMatrixIndex: 1
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
@@ -1151,17 +1151,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 13
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 2147483650
-  - first: {x: -4, y: -5, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 13
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1171,7 +1161,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 11
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 1
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2975,7 +2965,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 275
+  - m_RefCount: 274
     m_Data: {fileID: 11400000, guid: 219dc926d33f941f5945473b4c319b21, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
@@ -3000,16 +2990,16 @@ Tilemap:
     m_Data: {fileID: -1482209907, guid: c73796f21d8af46758451259922aa2b9, type: 3}
   - m_RefCount: 12
     m_Data: {fileID: 1543479316, guid: c73796f21d8af46758451259922aa2b9, type: 3}
-  - m_RefCount: 11
+  - m_RefCount: 12
     m_Data: {fileID: 1020262288, guid: c73796f21d8af46758451259922aa2b9, type: 3}
-  - m_RefCount: 67
+  - m_RefCount: 64
     m_Data: {fileID: 1718896809, guid: c73796f21d8af46758451259922aa2b9, type: 3}
   - m_RefCount: 140
     m_Data: {fileID: 772180089, guid: c73796f21d8af46758451259922aa2b9, type: 3}
-  - m_RefCount: 25
+  - m_RefCount: 26
     m_Data: {fileID: 1651839816, guid: c73796f21d8af46758451259922aa2b9, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 113
+  - m_RefCount: 111
     m_Data:
       e00: 1
       e01: 0
@@ -3027,7 +3017,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 70
+  - m_RefCount: 71
     m_Data:
       e00: 0.000000059604645
       e01: -0.99999994
@@ -3118,7 +3108,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 275
+  - m_RefCount: 274
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -3386,6 +3376,10 @@ CompositeCollider2D:
       - X: -30000000
         Y: -30000000
       - X: -30000000
+        Y: -50000000
+      - X: -40000000
+        Y: -50000000
+      - X: -40000000
         Y: -40000000
       - X: -60000000
         Y: -40000000
@@ -3434,7 +3428,9 @@ CompositeCollider2D:
       - {x: -2, y: -2.0000293}
       - {x: -2.0000293, y: -3}
       - {x: -3, y: -3.0000293}
-      - {x: -3.0000293, y: -4}
+      - {x: -3.0000293, y: -5}
+      - {x: -4, y: -4.9999704}
+      - {x: -4.000029, y: -4}
       - {x: -6, y: -4.000029}
       - {x: -6.0000296, y: -5}
       - {x: -7, y: -4.9999704}
@@ -3650,10 +3646,7 @@ MonoBehaviour:
   jumpForce: 12
   jumpCutMultiplier: 0.6
   coyoteTime: 0.15
-  enableHangTime: 1
-  jumpHangTimeThreshold: 0.1
-  jumpApexAccelerationMultiplier: 1.1
-  jumpApexMaxVelocityMultiplier: 1.1
+  jumpBuffer: 0.1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3735,10 +3728,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.1379717
-    y: 0.910434
-    width: 0.3773585
-    height: 0.33240998
+    x: 0
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -3809,7 +3802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a148d94753147dd924689888ac8ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 244996026}
+  player: {fileID: 244996022}
   offset: {x: 0, y: 2}
   smoothSpeed: 10
 --- !u!1 &619394800
