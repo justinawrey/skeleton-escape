@@ -3728,10 +3728,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.1379717
+    y: 0.910434
+    width: 0.3773585
+    height: 0.33240998
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -3925,7 +3925,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 960141677}
-  - component: {fileID: 960141678}
   m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Untagged
@@ -3948,22 +3947,6 @@ Transform:
   m_Father: {fileID: 244996026}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &960141678
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 960141676}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.1
 --- !u!1 &2080913866
 GameObject:
   m_ObjectHideFlags: 0
