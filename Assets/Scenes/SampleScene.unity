@@ -3588,7 +3588,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 244996022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: -3.234, z: 0}
+  m_LocalPosition: {x: -5.51, y: -3.23, z: 0}
   m_LocalScale: {x: 0.75, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3642,13 +3642,14 @@ MonoBehaviour:
   maxVelocity: 7
   runAcceleration: 4.9
   runDeceleration: 4.9
-  airAcceleration: 1.2
-  airDeceleration: 1.2
+  airAcceleration: 0.8
+  airDeceleration: 0.8
   friction: 0.1
   gravityScale: 2.5
   fallGravityMultiplier: 1.6
   jumpForce: 12
   jumpCutMultiplier: 0.6
+  coyoteTime: 0.15
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3730,10 +3731,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.03199052
-    y: 1.1265306
-    width: 0.75829387
-    height: 0.5877551
+    x: 0.1379717
+    y: 0.910434
+    width: 0.3773585
+    height: 0.33240998
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -3805,6 +3806,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 244996026}
+  offset: {x: 0, y: 2}
+  smoothSpeed: 10
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

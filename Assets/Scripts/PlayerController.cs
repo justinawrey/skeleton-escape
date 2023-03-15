@@ -1,10 +1,11 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
   private Vector2 input;
-  private bool jumping = false;
-  private bool cuttingJump = false;
+  private float lastOnGroundTime = 0f;
+  private bool groundCheckEnabled = true;
 
   public Rigidbody2D rb;
   public Transform groundCheck;
@@ -20,38 +21,35 @@ public class PlayerController : MonoBehaviour
   public float fallGravityMultiplier = 1.5f;
   public float jumpForce = 1f;
   public float jumpCutMultiplier = 0.1f;
+  public float coyoteTime = 1f;
   //   public float jumpHangTimeThreshold = 0.1f;
   //   public float jumpApexAccelerationMultiplier = 1.1f;
   //   public float jumpApexMaxVelocityMultiplier = 1.1f;
 
   private void Update()
   {
-    if (Grounded())
+    lastOnGroundTime -= Time.deltaTime;
+
+    if (groundCheckEnabled && Grounded())
     {
-      jumping = false;
-      cuttingJump = false;
+      lastOnGroundTime = coyoteTime;
     }
 
     input.x = Input.GetAxisRaw("Horizontal");
     input.y = Input.GetAxisRaw("Vertical");
 
-    if (Grounded() && Input.GetKeyDown(KeyCode.Space))
+    if (lastOnGroundTime > 0 && Input.GetKeyDown(KeyCode.Space))
     {
-      jumping = true;
+      lastOnGroundTime = 0;
+      groundCheckEnabled = false;
+
       rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+      StartCoroutine(GroundCheckDelayRoutine());
     }
 
-    if (Input.GetKeyUp(KeyCode.Space))
+    if (Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > 0)
     {
-      cuttingJump = true;
-    }
-
-    if (jumping && cuttingJump)
-    {
-      if (rb.velocity.y > 0)
-      {
-        rb.AddForce(Vector2.down * rb.velocity.y * (1 - jumpCutMultiplier), ForceMode2D.Impulse);
-      }
+      rb.AddForce(Vector2.down * rb.velocity.y * (1 - jumpCutMultiplier), ForceMode2D.Impulse);
     }
 
     // Extra fall gravity
@@ -64,7 +62,6 @@ public class PlayerController : MonoBehaviour
       rb.gravityScale = gravityScale;
     }
   }
-
 
   private void FixedUpdate()
   {
@@ -105,7 +102,14 @@ public class PlayerController : MonoBehaviour
 
   private bool Grounded()
   {
-    return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+    return Physics2D.OverlapCircle(groundCheck.position, 0.05f, groundLayer);
+  }
+
+  private IEnumerator GroundCheckDelayRoutine()
+  {
+    yield return new WaitForSeconds(0.2f);
+    groundCheckEnabled = true;
+    yield return null;
   }
 }
 
