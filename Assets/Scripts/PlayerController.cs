@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
   private bool Grounded()
   {
-    return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(1, 0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+    return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.5f, 0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
   }
 
   private IEnumerator GroundCheckDelayRoutine()
