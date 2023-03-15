@@ -3,12 +3,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
   private Vector2 input;
-  private bool jumpInputDown;
-  private bool jumpInputUp;
+  private bool jumpInputDown = false;
+  private bool jumpInputUp = false;
   private bool jumping = false;
 
   public Rigidbody2D rb;
-  public GameObject groundCheck;
+  public Transform groundCheck;
   public LayerMask groundLayer;
 
   public float maxVelocity = 2f;
@@ -74,8 +74,9 @@ public class PlayerController : MonoBehaviour
       rb.AddForce(Vector2.right * -amount, ForceMode2D.Impulse);
     }
 
+    Debug.Log("Grounded" + Grounded());
     // Do jump
-    if (jumpInputDown)
+    if (Grounded() && jumpInputDown)
     {
       Jump();
     }
@@ -102,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
   private bool Grounded()
   {
-    return Physics2D.OverlapCircle(groundCheck.transform.position, 0.1f, groundLayer);
+    return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
   }
 
   private bool Jumping()
