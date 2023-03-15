@@ -1826,7 +1826,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c718db8d1cd8544cea1db65fe6825a06, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -2075,7 +2075,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -2193,16 +2193,16 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  maxVelocity: 5
+  maxVelocity: 7
   runAcceleration: 4.9
   runDeceleration: 4.9
   airAcceleration: 1.2
   airDeceleration: 1.2
   friction: 0.1
-  gravityScale: 1
-  fallGravityMultiplier: 1.5
-  jumpForce: 5
-  jumpCutMultiplier: 0.1
+  gravityScale: 2.5
+  fallGravityMultiplier: 1.6
+  jumpForce: 12
+  jumpCutMultiplier: 0.6
   jumpHangTimeThreshold: 0.1
   jumpApexAccelerationMultiplier: 1.1
   jumpApexMaxVelocityMultiplier: 1.1
@@ -2287,9 +2287,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0.02042042
-    y: 0.1430096
-    width: 0.960961
-    height: 0.9605122
+    y: 0.5272145
+    width: 0.1921922
+    height: 0.19210245
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34

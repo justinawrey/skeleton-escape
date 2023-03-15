@@ -3,9 +3,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
   private Vector2 input;
-  private bool jumpInputDown = false;
-  private bool jumpInputUp = false;
   private bool jumping = false;
+  private bool cuttingJump = false;
 
   public Rigidbody2D rb;
   public Transform groundCheck;
@@ -21,70 +20,35 @@ public class PlayerController : MonoBehaviour
   public float fallGravityMultiplier = 1.5f;
   public float jumpForce = 1f;
   public float jumpCutMultiplier = 0.1f;
-  public float jumpHangTimeThreshold = 0.1f;
-  public float jumpApexAccelerationMultiplier = 1.1f;
-  public float jumpApexMaxVelocityMultiplier = 1.1f;
+  //   public float jumpHangTimeThreshold = 0.1f;
+  //   public float jumpApexAccelerationMultiplier = 1.1f;
+  //   public float jumpApexMaxVelocityMultiplier = 1.1f;
 
   private void Update()
-  {
-    input.x = Input.GetAxisRaw("Horizontal");
-    input.y = Input.GetAxisRaw("Vertical");
-    jumpInputDown = Input.GetKeyDown(KeyCode.Space);
-    jumpInputUp = Input.GetKeyUp(KeyCode.Space);
-  }
-
-  private void FixedUpdate()
   {
     if (Grounded())
     {
       jumping = false;
+      cuttingJump = false;
     }
 
-    // Calculate the direction we want to move in and our desired velocity
-    float targetSpeed = input.x * maxVelocity;
+    input.x = Input.GetAxisRaw("Horizontal");
+    input.y = Input.GetAxisRaw("Vertical");
 
-    // Gets an acceleration value based on if we are accelerating (includes turning) 
-    // or trying to decelerate (stop). As well as applying a multiplier if we're air borne.
-    float accelRate;
-    if (Grounded())
-      accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? runAcceleration : runDeceleration;
-    else
-      accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? runAcceleration * airAcceleration : runDeceleration * airDeceleration;
-
-    // Increase are acceleration and maxSpeed when at the apex of their jump,
-    // makes the jump feel a bit more bouncy, responsive and natural
-    if (jumping && (Mathf.Abs(rb.velocity.y) < jumpHangTimeThreshold))
+    if (Grounded() && Input.GetKeyDown(KeyCode.Space))
     {
-      accelRate *= jumpApexAccelerationMultiplier;
-      targetSpeed *= jumpApexMaxVelocityMultiplier;
+      jumping = true;
+      rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
-    // Calculate difference between current velocity and desired velocity
-    float speedDiff = targetSpeed - rb.velocity.x;
-    float movement = speedDiff * accelRate;
-
-    // Convert this to a vector and apply to rigidbody
-    rb.AddForce(movement * Vector2.right);
-
-    // Add stopping friction
-    if (Grounded() && input.x == 0)
+    if (Input.GetKeyUp(KeyCode.Space))
     {
-      float amount = Mathf.Min(Mathf.Abs(rb.velocity.x), friction);
-      amount *= Mathf.Sign(rb.velocity.x);
-      rb.AddForce(Vector2.right * -amount, ForceMode2D.Impulse);
+      cuttingJump = true;
     }
 
-    Debug.Log("Grounded" + Grounded());
-    // Do jump
-    if (Grounded() && jumpInputDown)
+    if (jumping && cuttingJump)
     {
-      Jump();
-    }
-
-    // Jump cut
-    if (jumpInputUp)
-    {
-      if (rb.velocity.y > 0 && jumping)
+      if (rb.velocity.y > 0)
       {
         rb.AddForce(Vector2.down * rb.velocity.y * (1 - jumpCutMultiplier), ForceMode2D.Impulse);
       }
@@ -101,20 +65,47 @@ public class PlayerController : MonoBehaviour
     }
   }
 
+
+  private void FixedUpdate()
+  {
+    // Calculate the direction we want to move in and our desired velocity
+    float targetSpeed = input.x * maxVelocity;
+
+    // Gets an acceleration value based on if we are accelerating (includes turning) 
+    // or trying to decelerate (stop). As well as applying a multiplier if we're air borne.
+    float accelRate;
+    if (Grounded())
+      accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? runAcceleration : runDeceleration;
+    else
+      accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? runAcceleration * airAcceleration : runDeceleration * airDeceleration;
+
+    // Increase are acceleration and maxSpeed when at the apex of their jump,
+    // makes the jump feel a bit more bouncy, responsive and natural
+    // if (jumping && (Mathf.Abs(rb.velocity.y) < jumpHangTimeThreshold))
+    // {
+    //   accelRate *= jumpApexAccelerationMultiplier;
+    //   targetSpeed *= jumpApexMaxVelocityMultiplier;
+    // }
+
+    // Calculate difference between current velocity and desired velocity
+    float speedDiff = targetSpeed - rb.velocity.x;
+    float movement = speedDiff * accelRate;
+
+    // Convert this to a vector and apply to rigidbody
+    rb.AddForce(movement * Vector2.right);
+
+    // Add stopping friction
+    if (Grounded() && input.x == 0)
+    {
+      float amount = Mathf.Min(Mathf.Abs(rb.velocity.x), friction);
+      amount *= Mathf.Sign(rb.velocity.x);
+      rb.AddForce(Vector2.right * -amount, ForceMode2D.Impulse);
+    }
+  }
+
   private bool Grounded()
   {
-    return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-  }
-
-  private bool Jumping()
-  {
-    return false;
-  }
-
-  private void Jump()
-  {
-    jumping = true;
-    rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+    return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
   }
 }
 
