@@ -22,9 +22,6 @@ public class PlayerController : MonoBehaviour
   public float jumpForce = 1f;
   public float jumpCutMultiplier = 0.1f;
   public float coyoteTime = 1f;
-  //   public float jumpHangTimeThreshold = 0.1f;
-  //   public float jumpApexAccelerationMultiplier = 1.1f;
-  //   public float jumpApexMaxVelocityMultiplier = 1.1f;
 
   private void Update()
   {
@@ -75,14 +72,6 @@ public class PlayerController : MonoBehaviour
       accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? runAcceleration : runDeceleration;
     else
       accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? runAcceleration * airAcceleration : runDeceleration * airDeceleration;
-
-    // Increase are acceleration and maxSpeed when at the apex of their jump,
-    // makes the jump feel a bit more bouncy, responsive and natural
-    // if (jumping && (Mathf.Abs(rb.velocity.y) < jumpHangTimeThreshold))
-    // {
-    //   accelRate *= jumpApexAccelerationMultiplier;
-    //   targetSpeed *= jumpApexMaxVelocityMultiplier;
-    // }
 
     // Calculate difference between current velocity and desired velocity
     float speedDiff = targetSpeed - rb.velocity.x;

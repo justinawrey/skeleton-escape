@@ -3646,10 +3646,14 @@ MonoBehaviour:
   airDeceleration: 0.8
   friction: 0.1
   gravityScale: 2.5
-  fallGravityMultiplier: 1.6
+  fallGravityMultiplier: 2
   jumpForce: 12
   jumpCutMultiplier: 0.6
   coyoteTime: 0.15
+  enableHangTime: 1
+  jumpHangTimeThreshold: 0.1
+  jumpApexAccelerationMultiplier: 1.1
+  jumpApexMaxVelocityMultiplier: 1.1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
