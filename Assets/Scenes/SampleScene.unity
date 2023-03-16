@@ -3620,9 +3620,13 @@ MonoBehaviour:
   gravityScale: 2.5
   fallGravityMultiplier: 2
   jumpForce: 12
+  jumpOffEnemyForce: 9
+  jumpOffEnemyWithTimingForce: 12
   jumpCutMultiplier: 0.6
   coyoteTime: 0.15
   jumpBuffer: 0.1
+  jumpTimingBuffer: 0.3
+  postBounceTimingBuffer: 0.1
 --- !u!70 &244996029
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3740,10 +3744,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.05257271
-    y: 0.052683894
-    width: 0.8948546
-    height: 0.89463216
+    x: 0
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -4270,18 +4274,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4729632768906389244, guid: f6f270176842d4a72a4495a594722d99, type: 3}
-      propertyPath: m_Color.b
-      value: 0.31318974
-      objectReference: {fileID: 0}
-    - target: {fileID: 4729632768906389244, guid: f6f270176842d4a72a4495a594722d99, type: 3}
-      propertyPath: m_Color.g
-      value: 0.9622642
-      objectReference: {fileID: 0}
-    - target: {fileID: 4729632768906389244, guid: f6f270176842d4a72a4495a594722d99, type: 3}
-      propertyPath: m_Color.r
-      value: 0.38611946
-      objectReference: {fileID: 0}
     - target: {fileID: 4938199142173992829, guid: f6f270176842d4a72a4495a594722d99, type: 3}
       propertyPath: m_RootOrder
       value: 4

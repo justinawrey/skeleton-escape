@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
   private Vector2 input;
   private float coyoteTimeCounter = 0f;
   private float jumpBufferCounter = 0f;
+  private float jumpTimingBufferCounter = 0f;
   private bool groundCheckEnabled = true;
 
   public Rigidbody2D rb;
@@ -21,9 +22,13 @@ public class PlayerController : MonoBehaviour
   public float gravityScale = 1f;
   public float fallGravityMultiplier = 1.5f;
   public float jumpForce = 1f;
+  public float jumpOffEnemyForce = 1f;
+  public float jumpOffEnemyWithTimingForce = 1f;
   public float jumpCutMultiplier = 0.1f;
   public float coyoteTime = 0.15f;
   public float jumpBuffer = 0.2f;
+  public float jumpTimingBuffer = 0.3f;
+  public float postBounceTimingBuffer = 0.1f;
 
   private void Update()
   {
@@ -40,10 +45,12 @@ public class PlayerController : MonoBehaviour
     if (Input.GetKeyDown(KeyCode.Space))
     {
       jumpBufferCounter = jumpBuffer;
+      jumpTimingBufferCounter = jumpTimingBuffer;
     }
     else
     {
       jumpBufferCounter -= Time.deltaTime;
+      jumpTimingBufferCounter -= Time.deltaTime;
     }
 
     if (coyoteTimeCounter > 0 && jumpBufferCounter > 0)
@@ -52,12 +59,7 @@ public class PlayerController : MonoBehaviour
       jumpBufferCounter = 0;
       groundCheckEnabled = false;
 
-      rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-      if (Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > 0)
-      {
-        rb.AddForce(Vector2.down * rb.velocity.y * (1 - jumpCutMultiplier), ForceMode2D.Impulse);
-      }
-
+      Jump(jumpForce);
       StartCoroutine(GroundCheckDelayRoutine());
     }
 
@@ -116,6 +118,28 @@ public class PlayerController : MonoBehaviour
     yield return new WaitForSeconds(0.2f);
     groundCheckEnabled = true;
     yield return null;
+  }
+
+  private void Jump(float force)
+  {
+    rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+  }
+
+  private void OnTriggerEnter2D(Collider2D other)
+  {
+    rb.velocity = new Vector2(rb.velocity.x, 0);
+
+    if (jumpTimingBufferCounter > 0)
+    {
+      Jump(jumpOffEnemyWithTimingForce);
+      jumpTimingBufferCounter = 0;
+    }
+    else
+    {
+      Jump(jumpOffEnemyForce);
+    }
+
+    Destroy(other.gameObject);
   }
 }
 
