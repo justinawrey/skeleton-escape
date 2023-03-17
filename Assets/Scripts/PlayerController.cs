@@ -142,15 +142,8 @@ public class PlayerController : MonoBehaviour
         Jump(jumpOffEnemyForce);
       }
 
-      StartCoroutine(PeriodicallyKillRespawnableRoutine(respawnable));
+      StartCoroutine(respawnable.PeriodicallyKillRespawnableRoutine());
     }
-  }
-
-  private IEnumerator PeriodicallyKillRespawnableRoutine(Respawnable respawnable)
-  {
-    respawnable.Die();
-    yield return new WaitForSeconds(respawnable.GetRespawnTime());
-    respawnable.Respawn();
   }
 }
 

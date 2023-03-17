@@ -1,11 +1,5 @@
+using System.Collections;
 using UnityEngine;
-
-public interface IRespawnable
-{
-  public float GetRespawnTime();
-  public void Die();
-  public void Respawn();
-}
 
 public class Respawnable : MonoBehaviour, IRespawnable
 {
@@ -24,5 +18,13 @@ public class Respawnable : MonoBehaviour, IRespawnable
   public void Respawn()
   {
     gameObject.SetActive(true);
+  }
+
+  public IEnumerator PeriodicallyKillRespawnableRoutine()
+  {
+    Die();
+    yield return new WaitForSeconds(GetRespawnTime());
+    Respawn();
+    yield return null;
   }
 }

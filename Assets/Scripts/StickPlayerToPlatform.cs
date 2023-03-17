@@ -12,17 +12,17 @@ public class StickPlayerToPlatform : MonoBehaviour
   {
     Collider2D collider = Physics2D.OverlapBox(playerCheck.position, new Vector2(1, 0.15f), 0, playerMask);
 
-    if (collider)
-    {
-      collider.gameObject.transform.SetParent(transform);
-      player = collider.gameObject.transform;
-    }
-    else
-    {
-      if (player)
-      {
-        player.parent = null;
-      }
-    }
+    // if (collider)
+    // {
+    //   collider.gameObject.transform.SetParent(transform);
+    //   player = collider.gameObject.transform;
+    // }
+    // else
+    // {
+    //   if (player)
+    //   {
+    //     player.parent = null;
+    //   }
+    // }
   }
 }

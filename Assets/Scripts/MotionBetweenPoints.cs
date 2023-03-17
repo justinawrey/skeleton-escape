@@ -27,6 +27,7 @@ public class MotionBetweenPoints : MonoBehaviour
   public Rigidbody2D rb;
   public List<MoveCommand> moveCommands;
   public bool loop = true;
+  public bool flipSprite = true;
 
   private void Start()
   {
@@ -92,6 +93,19 @@ public class MotionBetweenPoints : MonoBehaviour
     }
 
     MoveCommand moveCommand = moveCommands[currMoveCommand];
+
+    if (flipSprite)
+    {
+      if (moveCommand.dir == Direction.Left)
+      {
+        rb.GetComponentInParent<SpriteRenderer>().flipX = true;
+      }
+      else if (moveCommand.dir == Direction.Right)
+      {
+        rb.GetComponentInParent<SpriteRenderer>().flipX = false;
+      }
+    }
+
     float velocity = moveCommand.speed;
     Direction dir = moveCommand.dir;
     Vector2 currPos = rb.position;
