@@ -127,19 +127,30 @@ public class PlayerController : MonoBehaviour
 
   private void OnTriggerEnter2D(Collider2D other)
   {
-    rb.velocity = new Vector2(rb.velocity.x, 0);
-
-    if (jumpTimingBufferCounter > 0)
+    Respawnable respawnable = other.gameObject.GetComponent<Respawnable>();
+    if (respawnable)
     {
-      Jump(jumpOffEnemyWithTimingForce);
-      jumpTimingBufferCounter = 0;
-    }
-    else
-    {
-      Jump(jumpOffEnemyForce);
-    }
+      rb.velocity = new Vector2(rb.velocity.x, 0);
 
-    Destroy(other.gameObject);
+      if (jumpTimingBufferCounter > 0)
+      {
+        Jump(jumpOffEnemyWithTimingForce);
+        jumpTimingBufferCounter = 0;
+      }
+      else
+      {
+        Jump(jumpOffEnemyForce);
+      }
+
+      StartCoroutine(PeriodicallyKillRespawnableRoutine(respawnable));
+    }
+  }
+
+  private IEnumerator PeriodicallyKillRespawnableRoutine(Respawnable respawnable)
+  {
+    respawnable.Die();
+    yield return new WaitForSeconds(respawnable.GetRespawnTime());
+    respawnable.Respawn();
   }
 }
 
