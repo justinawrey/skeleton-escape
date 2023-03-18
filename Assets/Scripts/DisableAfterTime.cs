@@ -19,7 +19,8 @@ public class DisableAfterTime : MonoBehaviour
   private IEnumerator DisableAfterTimeRoutine()
   {
     yield return new WaitForSeconds(timer);
-    Respawnable respawnable = GetComponent<Respawnable>();
+    Respawnable respawnable = GetComponentInChildren<Respawnable>();
     StartCoroutine(respawnable.PeriodicallyKillRespawnableRoutine());
+    yield return null;
   }
 }
