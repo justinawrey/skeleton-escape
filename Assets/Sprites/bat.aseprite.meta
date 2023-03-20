@@ -121,7 +121,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 92
+      y: 91
       width: 17
       height: 16
     spriteID: 56d263c2c55f5467384ebde8c56968d7
@@ -132,7 +132,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 92}
+    uvTransform: {x: 4, y: 91}
   - name: bat_Frame_1
     originalName: 
     pivot: {x: 0.5, y: -0.33333334}
@@ -235,15 +235,15 @@ ScriptedImporter:
     uvTransform: {x: 64, y: 26}
   - name: bat_Frame_6
     originalName: 
-    pivot: {x: 0.5, y: -0.35714287}
+    pivot: {x: 0.5, y: -0.46153846}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 70
+      x: 100
+      y: 49
       width: 22
-      height: 14
+      height: 13
     spriteID: a4a1829bd20044f29b329b6a23badea3
     spriteBone: []
     spriteOutline: []
@@ -252,7 +252,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 70}
+    uvTransform: {x: 100, y: 49}
   - name: bat_Frame_7
     originalName: 
     pivot: {x: 0.5, y: -0.3846154}
@@ -260,8 +260,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 68
-      y: 49
+      x: 4
+      y: 70
       width: 22
       height: 13
     spriteID: 4b6a7c680b23d4d50b4f7346573af6b4
@@ -272,18 +272,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 68, y: 49}
+    uvTransform: {x: 4, y: 70}
   - name: bat_Frame_8
     originalName: 
-    pivot: {x: 0.5, y: -0.35714287}
+    pivot: {x: 0.5, y: -0.46153846}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 34
-      y: 70
-      width: 22
-      height: 14
+      x: 96
+      y: 26
+      width: 24
+      height: 13
     spriteID: 5a3f1575fc3ef4c538736ac5cae800f1
     spriteBone: []
     spriteOutline: []
@@ -292,7 +292,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 34, y: 70}
+    uvTransform: {x: 96, y: 26}
   - name: bat_Frame_9
     originalName: 
     pivot: {x: 0.5, y: -0.5384615}
@@ -300,8 +300,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 96
-      y: 26
+      x: 4
+      y: 49
       width: 24
       height: 13
     spriteID: 2ec9972fdef964b12bf7cf7c83cc427a
@@ -312,7 +312,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 96, y: 26}
+    uvTransform: {x: 4, y: 49}
   - name: bat_Frame_10
     originalName: 
     pivot: {x: 0.5, y: -0.5384615}
@@ -320,7 +320,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 36
       y: 49
       width: 24
       height: 13
@@ -332,7 +332,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 49}
+    uvTransform: {x: 36, y: 49}
   - name: bat_Frame_11
     originalName: 
     pivot: {x: 0.5, y: -0.61538464}
@@ -340,7 +340,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 36
+      x: 68
       y: 49
       width: 24
       height: 13
@@ -352,7 +352,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 36, y: 49}
+    uvTransform: {x: 68, y: 49}
   - name: bat_Frame_12
     originalName: 
     pivot: {x: 0.5, y: -0.5}
@@ -452,9 +452,9 @@ ScriptedImporter:
       frameIndex: 6
       cellRect:
         x: 1
-        y: 5
+        y: 6
         width: 22
-        height: 14
+        height: 13
       spriteId: a4a1829bd20044f29b329b6a23badea3
     - name: bat_Frame_7
       frameIndex: 7
@@ -467,10 +467,10 @@ ScriptedImporter:
     - name: bat_Frame_8
       frameIndex: 8
       cellRect:
-        x: 1
-        y: 5
-        width: 22
-        height: 14
+        x: 0
+        y: 6
+        width: 24
+        height: 13
       spriteId: 5a3f1575fc3ef4c538736ac5cae800f1
     - name: bat_Frame_9
       frameIndex: 9

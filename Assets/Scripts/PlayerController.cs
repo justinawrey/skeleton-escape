@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
   private bool groundCheckEnabled = true;
 
   public Rigidbody2D rb;
+  public SpriteRenderer spriteRenderer;
   public Transform groundCheck;
   public LayerMask groundLayer;
 
@@ -41,6 +42,15 @@ public class PlayerController : MonoBehaviour
 
     input.x = Input.GetAxisRaw("Horizontal");
     input.y = Input.GetAxisRaw("Vertical");
+
+    if (input.x > 0)
+    {
+      spriteRenderer.flipX = false;
+    }
+    else if (input.x < 0)
+    {
+      spriteRenderer.flipX = true;
+    }
 
     if (Input.GetKeyDown(KeyCode.Space))
     {
