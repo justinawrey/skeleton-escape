@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -6674906073644472411}
   - component: {fileID: -2646124996069247455}
   - component: {fileID: -7330724903648016140}
+  - component: {fileID: 6333834951986770508}
   m_Layer: 0
   m_Name: Bone
   m_TagString: Untagged
@@ -121,19 +122,33 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0018649697, y: -0.011189729}
+  m_Offset: {x: 0.039089188, y: -0.026517347}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.875, y: 0.875}
+    pivot: {x: 0.4615385, y: 0.5}
+    oldSize: {x: 0.8125, y: 0.375}
     newSize: {x: 0.875, y: 0.875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.76501584, y: 0.7538263}
+  m_Size: {x: 0.49787727, y: 0.1363422}
   m_EdgeRadius: 0
+--- !u!114 &6333834951986770508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728644477525301538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac40bb431418c449081c4a47cbbd4833, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullnessAmt: 40
+  respawnTime: 2.5
 --- !u!1001 &1631728786660257268
 PrefabInstance:
   m_ObjectHideFlags: 0
