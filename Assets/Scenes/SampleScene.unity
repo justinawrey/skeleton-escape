@@ -4404,10 +4404,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.01921922
-    y: 0.019210245
-    width: 0.960961
-    height: 0.9605122
+    x: 0.012019231
+    y: 0.7061966
+    width: 0.3846154
+    height: 0.3846154
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -6960,11 +6960,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2479868795032403590, guid: 7ff27c4dcfbbe494e9d8aa11f23ded37, type: 3}
       propertyPath: m_Size.x
-      value: 2.18907
+      value: 3.3976493
+      objectReference: {fileID: 0}
+    - target: {fileID: 2479868795032403590, guid: 7ff27c4dcfbbe494e9d8aa11f23ded37, type: 3}
+      propertyPath: m_Size.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7294394675764523670, guid: 7ff27c4dcfbbe494e9d8aa11f23ded37, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 2.18907
+      value: 3.3976493
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509075758331915407, guid: 7ff27c4dcfbbe494e9d8aa11f23ded37, type: 3}
+      propertyPath: m_Speed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509075758331915407, guid: 7ff27c4dcfbbe494e9d8aa11f23ded37, type: 3}
+      propertyPath: m_ForceScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509075758331915407, guid: 7ff27c4dcfbbe494e9d8aa11f23ded37, type: 3}
+      propertyPath: m_SpeedVariation
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8649457615015586913, guid: 7ff27c4dcfbbe494e9d8aa11f23ded37, type: 3}
       propertyPath: m_RootOrder
@@ -6972,7 +6988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8649457615015586913, guid: 7ff27c4dcfbbe494e9d8aa11f23ded37, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.0945
+      value: -2.2933
       objectReference: {fileID: 0}
     - target: {fileID: 8649457615015586913, guid: 7ff27c4dcfbbe494e9d8aa11f23ded37, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7014,7 +7030,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moving Platform
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7509075758331915407, guid: 7ff27c4dcfbbe494e9d8aa11f23ded37, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7ff27c4dcfbbe494e9d8aa11f23ded37, type: 3}
 --- !u!4 &1064525824 stripped
 Transform:
@@ -8758,11 +8775,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4102953931989697246, guid: 00cd1b2e3a21d4e6789f49b0780c48bf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.48
+      value: -2.61
       objectReference: {fileID: 0}
     - target: {fileID: 4102953931989697246, guid: 00cd1b2e3a21d4e6789f49b0780c48bf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.19
+      value: 16.74
       objectReference: {fileID: 0}
     - target: {fileID: 4102953931989697246, guid: 00cd1b2e3a21d4e6789f49b0780c48bf, type: 3}
       propertyPath: m_LocalPosition.z

@@ -129,4 +129,10 @@ public class MotionBetweenPoints : MonoBehaviour
 
     rb.MovePosition(newPos);
   }
+
+  public float GetCurrMovementVelocityX()
+  {
+    MoveCommand command = moveCommands[currMoveCommand];
+    return command.dir == Direction.Left ? -(command.speed) : command.speed;
+  }
 }

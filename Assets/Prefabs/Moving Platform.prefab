@@ -43,11 +43,10 @@ GameObject:
   - component: {fileID: 2479868795032403590}
   - component: {fileID: 7784223018724033705}
   - component: {fileID: 9780187644227951}
-  - component: {fileID: 5794528301278531661}
   - component: {fileID: 7294394675764523670}
   m_Layer: 3
   m_Name: Moving Platform
-  m_TagString: Untagged
+  m_TagString: Moving Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,23 +160,6 @@ MonoBehaviour:
     speed: 0
   loop: 1
   flipSprite: 1
---- !u!114 &5794528301278531661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9142464341921938050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad873a0f745744a71aecbb39650a8d8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 7784223018724033705}
-  playerCheck: {fileID: 4013829985044929424}
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!61 &7294394675764523670
 BoxCollider2D:
   m_ObjectHideFlags: 0

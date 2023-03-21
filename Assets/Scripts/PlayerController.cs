@@ -92,7 +92,15 @@ public class PlayerController : MonoBehaviour
   private void FixedUpdate()
   {
     // Calculate the direction we want to move in and our desired velocity
-    float targetSpeed = input.x * maxVelocity;
+    float targetSpeed;
+    float platformSpeed = GetMovingPlatformSpeed();
+    bool onPlatform = platformSpeed != 0;
+    float groundedSpeed = input.x * maxVelocity;
+
+    if (onPlatform)
+      targetSpeed = groundedSpeed + platformSpeed;
+    else
+      targetSpeed = groundedSpeed;
 
     // Gets an acceleration value based on if we are accelerating (includes turning) 
     // or trying to decelerate (stop). As well as applying a multiplier if we're air borne.
@@ -109,8 +117,8 @@ public class PlayerController : MonoBehaviour
     // Convert this to a vector and apply to rigidbody
     rb.AddForce(movement * Vector2.right);
 
-    // Add stopping friction
-    if (Grounded() && input.x == 0)
+    // Add stopping friction ONLY if not on moving platform
+    if (Grounded() && !onPlatform && input.x == 0)
     {
       float amount = Mathf.Min(Mathf.Abs(rb.velocity.x), friction);
       amount *= Mathf.Sign(rb.velocity.x);
@@ -120,7 +128,23 @@ public class PlayerController : MonoBehaviour
 
   private bool Grounded()
   {
-    return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.5f, 0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+    return GetGroundedCollider();
+  }
+
+  private Collider2D GetGroundedCollider()
+  {
+    return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.2f, 0.03f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+  }
+
+  private float GetMovingPlatformSpeed()
+  {
+    Collider2D collider = GetGroundedCollider();
+    if (collider && collider.gameObject.tag == "Moving Platform")
+    {
+      return collider.gameObject.GetComponent<MotionBetweenPoints>().GetCurrMovementVelocityX();
+    }
+
+    return 0f;
   }
 
   private IEnumerator GroundCheckDelayRoutine()
