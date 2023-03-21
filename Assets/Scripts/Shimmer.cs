@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -7,7 +6,7 @@ public class Shimmer : MonoBehaviour
 {
   private float targetIntensity;
   private Coroutine shimmerRoutine;
-  public Light2D light;
+  new public Light2D light;
 
   public float minIntensity, maxIntensity, speed, touchedIntensityMultiplier, maxTouchedIntensity;
 

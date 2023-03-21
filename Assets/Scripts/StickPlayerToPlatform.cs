@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class StickPlayerToPlatform : MonoBehaviour
 {
-  private Transform player = null;
+  // private Transform player = null;
 
   public Rigidbody2D rb;
   public Transform playerCheck;

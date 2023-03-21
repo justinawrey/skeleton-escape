@@ -101,7 +101,7 @@ MonoBehaviour:
   fullYCoord: -0.405
   emptyYCoord: -1.281
   timeToEmpty: 5
-  allowDraining: 0
+  allowDraining: 1
 --- !u!95 &3690675503219605487
 Animator:
   serializedVersion: 5
