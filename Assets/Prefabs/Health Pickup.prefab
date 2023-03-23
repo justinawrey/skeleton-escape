@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1728644477525301538}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1258159141448449378}
@@ -149,9 +149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac40bb431418c449081c4a47cbbd4833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemLight: {fileID: 1258159141448449379}
   fullnessAmt: 40
   respawnTime: 2.5
-  animateInTime: 0.5
+  animateInTime: 1
   animateOutTime: 1
 --- !u!95 &1646507027719452511
 Animator:
@@ -2147,5 +2148,10 @@ PrefabInstance:
 --- !u!4 &1258159141448449378 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 563215747780186262, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
+  m_PrefabInstance: {fileID: 1631728786660257268}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1258159141448449379 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 563215747780186263, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
   m_PrefabInstance: {fileID: 1631728786660257268}
   m_PrefabAsset: {fileID: 0}

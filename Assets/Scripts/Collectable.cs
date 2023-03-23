@@ -9,6 +9,9 @@ public class Collectable : MonoBehaviour
   private Animator animator;
   private Vector3 initialPos;
 
+  [SerializeField]
+  private GameObject itemLight;
+
   public float fullnessAmt;
   public float respawnTime = 2.5f;
   public float animateInTime, animateOutTime;
@@ -53,26 +56,27 @@ public class Collectable : MonoBehaviour
 
     spriteRenderer.enabled = false;
     transform.position = initialPos;
+    itemLight.SetActive(false);
     yield return null;
   }
 
   private IEnumerator AnimateIn()
   {
+    itemLight.SetActive(true);
+    animator.enabled = true;
     spriteRenderer.enabled = true;
     float increment = animateInTime / 10f;
-    transform.position = initialPos + (new Vector3(0, animateInTime / 10, 0));
+    transform.position = initialPos;
     spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0);
 
     for (float i = 0f; i < animateInTime; i += increment)
     {
-      transform.position -= new Vector3(0f, increment / 8, 0f);
       spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, i * 2);
       yield return new WaitForSeconds(increment);
     }
 
-    animator.enabled = true;
     boxCollider.enabled = true;
-    transform.position = initialPos;
+    spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1);
     yield return null;
   }
 }

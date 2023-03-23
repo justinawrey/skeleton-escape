@@ -120,7 +120,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 26
+      x: 4
       y: 4
       width: 14
       height: 14
@@ -132,7 +132,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 26, y: 4}
+    uvTransform: {x: 4, y: 4}
   - name: health-pickup_Frame_1
     originalName: 
     pivot: {x: 0.5, y: 0.53846157}
@@ -155,15 +155,15 @@ ScriptedImporter:
     uvTransform: {x: 26, y: 70}
   - name: health-pickup_Frame_2
     originalName: 
-    pivot: {x: 0.5, y: 0.4375}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
+      y: 26
       width: 14
-      height: 16
+      height: 14
     spriteID: 85c60fadcc5ea4c1480be3a4f65b8d6c
     spriteBone: []
     spriteOutline: []
@@ -172,18 +172,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 4, y: 26}
   - name: health-pickup_Frame_3
     originalName: 
-    pivot: {x: 0.5, y: 0.40000004}
+    pivot: {x: 0.5, y: 0.42857146}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 52
+      y: 48
       width: 14
-      height: 15
+      height: 14
     spriteID: a83731b6f26004677a01e31a02025ea5
     spriteBone: []
     spriteOutline: []
@@ -192,18 +192,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 52}
+    uvTransform: {x: 4, y: 48}
   - name: health-pickup_Frame_4
     originalName: 
-    pivot: {x: 0.5, y: 0.40000004}
+    pivot: {x: 0.5, y: 0.42857146}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 75
+      y: 70
       width: 14
-      height: 15
+      height: 14
     spriteID: 1c3edcd708d5c459eb8bde7b3ff9eb1a
     spriteBone: []
     spriteOutline: []
@@ -212,18 +212,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 75}
+    uvTransform: {x: 4, y: 70}
   - name: health-pickup_Frame_5
     originalName: 
-    pivot: {x: 0.5, y: 0.40000004}
+    pivot: {x: 0.5, y: 0.42857146}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 98
+      y: 92
       width: 14
-      height: 15
+      height: 14
     spriteID: cb115df81d4b8448794f2c5bcc4ac8fd
     spriteBone: []
     spriteOutline: []
@@ -232,18 +232,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 98}
+    uvTransform: {x: 4, y: 92}
   - name: health-pickup_Frame_6
     originalName: 
-    pivot: {x: 0.5, y: 0.4375}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 28
+      x: 26
+      y: 4
       width: 14
-      height: 16
+      height: 14
     spriteID: 75c8b6125b6cd469fa4e2f99f90d7440
     spriteBone: []
     spriteOutline: []
@@ -252,7 +252,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 28}
+    uvTransform: {x: 26, y: 4}
   - name: health-pickup_Frame_7
     originalName: 
     pivot: {x: 0.5, y: 0.53846157}
@@ -342,7 +342,7 @@ ScriptedImporter:
         x: 1
         y: 1
         width: 14
-        height: 16
+        height: 14
       spriteId: 85c60fadcc5ea4c1480be3a4f65b8d6c
     - name: health-pickup_Frame_3
       frameIndex: 3
@@ -350,7 +350,7 @@ ScriptedImporter:
         x: 1
         y: 2
         width: 14
-        height: 15
+        height: 14
       spriteId: a83731b6f26004677a01e31a02025ea5
     - name: health-pickup_Frame_4
       frameIndex: 4
@@ -358,7 +358,7 @@ ScriptedImporter:
         x: 1
         y: 2
         width: 14
-        height: 15
+        height: 14
       spriteId: 1c3edcd708d5c459eb8bde7b3ff9eb1a
     - name: health-pickup_Frame_5
       frameIndex: 5
@@ -366,7 +366,7 @@ ScriptedImporter:
         x: 1
         y: 2
         width: 14
-        height: 15
+        height: 14
       spriteId: cb115df81d4b8448794f2c5bcc4ac8fd
     - name: health-pickup_Frame_6
       frameIndex: 6
@@ -374,7 +374,7 @@ ScriptedImporter:
         x: 1
         y: 1
         width: 14
-        height: 16
+        height: 14
       spriteId: 75c8b6125b6cd469fa4e2f99f90d7440
     - name: health-pickup_Frame_7
       frameIndex: 7

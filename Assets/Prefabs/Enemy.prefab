@@ -149,7 +149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f574076ed5e5549959862bf8945c35d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemLight: {fileID: 2443994140713050652}
   respawnTime: 5
+  animateInTime: 1
+  animateOutTime: 1
 --- !u!95 &4326406102817475205
 Animator:
   serializedVersion: 5
@@ -2181,6 +2184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
+--- !u!1 &2443994140713050652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 563215747780186263, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
+  m_PrefabInstance: {fileID: 2754582316709737099}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2443994140713050653 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 563215747780186262, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}

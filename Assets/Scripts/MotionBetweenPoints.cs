@@ -84,7 +84,7 @@ public class MotionBetweenPoints : MonoBehaviour
       {
         if (!loop)
         {
-          finished = true;
+          StopMovement();
         }
         currMoveCommand = 0;
       }
@@ -134,5 +134,15 @@ public class MotionBetweenPoints : MonoBehaviour
   {
     MoveCommand command = moveCommands[currMoveCommand];
     return command.dir == Direction.Left ? -(command.speed) : command.speed;
+  }
+
+  public void StopMovement()
+  {
+    finished = true;
+  }
+
+  public void StartMovement()
+  {
+    finished = false;
   }
 }

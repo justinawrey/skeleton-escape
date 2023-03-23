@@ -150,8 +150,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 905993433d4e74c309eaaa478f5eba5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemLight: {fileID: 3863004758075534198}
   respawnTime: 3
-  animator: {fileID: 8135305277921102916}
+  animateInTime: 1
 --- !u!114 &8107780558065399328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +191,7 @@ Animator:
   m_GameObject: {fileID: 7569480682970324556}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1645ff22458994e9986512f6405ba290, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2e2187c5554dd4a678456406e5f5804f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2001,6 +2002,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
+--- !u!1 &3863004758075534198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 563215747780186263, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
+  m_PrefabInstance: {fileID: 3624509162851171297}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3863004758075534199 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 563215747780186262, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}

@@ -220,7 +220,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 100}
   - name: breakable platform_Frame_5
     originalName: 
-    pivot: {x: 0.5, y: 0.5714286}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -228,7 +228,7 @@ ScriptedImporter:
       x: 28
       y: 4
       width: 16
-      height: 14
+      height: 16
     spriteID: a309a524440d84c6abfa9d6e0390583c
     spriteBone: []
     spriteOutline: []
@@ -240,15 +240,15 @@ ScriptedImporter:
     uvTransform: {x: 28, y: 4}
   - name: breakable platform_Frame_6
     originalName: 
-    pivot: {x: 0.5, y: 0.8}
+    pivot: {x: 0.5, y: 0.5714286}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 28
-      y: 26
+      y: 28
       width: 16
-      height: 10
+      height: 14
     spriteID: c90165078d35c4b2b9dd92b6733cb0f5
     spriteBone: []
     spriteOutline: []
@@ -257,18 +257,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 28, y: 26}
+    uvTransform: {x: 28, y: 28}
   - name: breakable platform_Frame_7
     originalName: 
-    pivot: {x: 0.53333336, y: 2}
+    pivot: {x: 0.5, y: 0.8}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 28
-      y: 44
-      width: 15
-      height: 4
+      y: 50
+      width: 16
+      height: 10
     spriteID: 2767300be091a4b1d86af8628b9f08f2
     spriteBone: []
     spriteOutline: []
@@ -277,7 +277,47 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 28, y: 44}
+    uvTransform: {x: 28, y: 50}
+  - name: breakable platform_Frame_8
+    originalName: 
+    pivot: {x: 0.53333336, y: 2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 28
+      y: 68
+      width: 15
+      height: 4
+    spriteID: f9d02222ba9c24f35a30a4f093b9d167
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 28, y: 68}
+  - name: breakable platform_Frame_9
+    originalName: 
+    pivot: {x: 0.53333336, y: 2.6666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 28
+      y: 80
+      width: 15
+      height: 3
+    spriteID: 606295b12770e485db98bc8bda8822a2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 28, y: 80}
   asepriteLayers:
   - layerIndex: 0
     guid: 249416848
@@ -331,7 +371,7 @@ ScriptedImporter:
         x: 0
         y: 0
         width: 16
-        height: 14
+        height: 16
       spriteId: a309a524440d84c6abfa9d6e0390583c
     - name: breakable platform_Frame_6
       frameIndex: 6
@@ -339,16 +379,32 @@ ScriptedImporter:
         x: 0
         y: 0
         width: 16
-        height: 10
+        height: 14
       spriteId: c90165078d35c4b2b9dd92b6733cb0f5
     - name: breakable platform_Frame_7
       frameIndex: 7
       cellRect:
         x: 0
         y: 0
+        width: 16
+        height: 10
+      spriteId: 2767300be091a4b1d86af8628b9f08f2
+    - name: breakable platform_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 0
+        y: 0
         width: 15
         height: 4
-      spriteId: 2767300be091a4b1d86af8628b9f08f2
+      spriteId: f9d02222ba9c24f35a30a4f093b9d167
+    - name: breakable platform_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 0
+        y: 0
+        width: 15
+        height: 3
+      spriteId: 606295b12770e485db98bc8bda8822a2
     linkedCells: []
     parentIndex: -1
   platformSettings: []
