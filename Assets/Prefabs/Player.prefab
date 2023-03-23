@@ -150,7 +150,7 @@ MonoBehaviour:
   jumpTimingBuffer: 0.3
   postBounceTimingBuffer: 0.1
   iFramesGravityMultiplier: 0.2
-  iFramesLength: 0.5
+  iFramesLength: 0.3
   iFrameRecoilMultiplier: 2
 --- !u!95 &4102953931989697242
 Animator:

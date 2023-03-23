@@ -4893,10 +4893,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.02023988
-    y: 0.02
-    width: 0.9595203
-    height: 0.96
+    x: 0.010204081
+    y: 0.036275696
+    width: 0.97959185
+    height: 0.9794438
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -5605,6 +5605,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 519420032}
     m_Modifications:
+    - target: {fileID: 64131638706282568, guid: 1aaf1bb68fc9e454c92d1304d126e182, type: 3}
+      propertyPath: maxIntensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2746941258778168876, guid: 1aaf1bb68fc9e454c92d1304d126e182, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -5648,6 +5652,10 @@ PrefabInstance:
     - target: {fileID: 2746941258778168876, guid: 1aaf1bb68fc9e454c92d1304d126e182, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5043735885866253486, guid: 1aaf1bb68fc9e454c92d1304d126e182, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7172762585255622549, guid: 1aaf1bb68fc9e454c92d1304d126e182, type: 3}
       propertyPath: m_Name

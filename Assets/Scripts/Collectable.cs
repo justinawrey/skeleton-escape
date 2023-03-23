@@ -8,6 +8,9 @@ public class Collectable : MonoBehaviour
   private BoxCollider2D boxCollider;
   private Animator animator;
   private Vector3 initialPos;
+  private bool bobbing = true;
+  private bool bobbingUp = true;
+  private float bobCounter = 0;
 
   [SerializeField]
   private GameObject itemLight;
@@ -15,6 +18,8 @@ public class Collectable : MonoBehaviour
   public float fullnessAmt;
   public float respawnTime = 2.5f;
   public float animateInTime, animateOutTime;
+  public float bobAmount = 0.1f;
+  public float bobTime = 0.5f;
 
   private void Start()
   {
@@ -23,6 +28,45 @@ public class Collectable : MonoBehaviour
     boxCollider = GetComponent<BoxCollider2D>();
     animator = GetComponent<Animator>();
     initialPos = transform.position;
+
+    float offset = Random.Range(-0.09f, 0.09f);
+    transform.position = transform.position + new Vector3(0f, offset, 0f);
+  }
+
+  private void Update()
+  {
+    bobCounter += Time.deltaTime;
+
+    if (!bobbing)
+    {
+      return;
+    }
+
+    if (bobCounter < bobTime)
+    {
+      return;
+    }
+
+    if (transform.position.y >= initialPos.y + bobAmount)
+    {
+      bobbingUp = false;
+    }
+
+    if (transform.position.y <= initialPos.y - bobAmount)
+    {
+      bobbingUp = true;
+    }
+
+    if (bobbingUp)
+    {
+      transform.position += new Vector3(0, 0.03f, 0);
+    }
+    else
+    {
+      transform.position -= new Vector3(0, 0.03f, 0);
+    }
+
+    bobCounter = 0;
   }
 
   private void OnTriggerEnter2D(Collider2D collider)
@@ -43,7 +87,8 @@ public class Collectable : MonoBehaviour
 
   private IEnumerator AnimateOut()
   {
-    animator.enabled = false;
+    bobbing = false;
+    animator.Play("Chomping");
     boxCollider.enabled = false;
     float increment = animateOutTime / 10f;
 
@@ -62,11 +107,12 @@ public class Collectable : MonoBehaviour
 
   private IEnumerator AnimateIn()
   {
+    transform.position = initialPos;
+    bobbing = true;
     itemLight.SetActive(true);
-    animator.enabled = true;
+    animator.Play("Idle");
     spriteRenderer.enabled = true;
     float increment = animateInTime / 10f;
-    transform.position = initialPos;
     spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0);
 
     for (float i = 0f; i < animateInTime; i += increment)
