@@ -5,7 +5,7 @@ public class StickToCamera : MonoBehaviour
   public SpriteRenderer spriteRenderer;
   public float xOffset, yOffset;
 
-  private void Update()
+  private void LateUpdate()
   {
     Camera mainCamera = Camera.main;
     float halfViewportX = mainCamera.orthographicSize * mainCamera.aspect;

@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: -2646124996069247455}
   - component: {fileID: -7330724903648016140}
   - component: {fileID: 6333834951986770508}
+  - component: {fileID: 1646507027719452511}
+  - component: {fileID: 8745857471084208423}
   m_Layer: 0
   m_Name: Health Pickup
   m_TagString: Untagged
@@ -77,12 +79,12 @@ SpriteRenderer:
   m_SortingLayerID: -492876911
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8448333921180973912, guid: 171df6db5db5a40ffaa35f6f9a040d0b, type: 3}
+  m_Sprite: {fileID: 5707738380883765617, guid: 754fa75e22e5141f4b3e493597df0851, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.875, y: 0.875}
+  m_Size: {x: 0.75, y: 0.625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -125,9 +127,9 @@ BoxCollider2D:
   m_Offset: {x: 0.006588787, y: -0.007945731}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.4615385, y: 0.5}
-    oldSize: {x: 0.8125, y: 0.375}
-    newSize: {x: 0.875, y: 0.875}
+    pivot: {x: 0.5, y: 0.53846157}
+    oldSize: {x: 0.875, y: 0.8125}
+    newSize: {x: 0.75, y: 0.625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -149,6 +151,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fullnessAmt: 40
   respawnTime: 2.5
+  animateInTime: 0.5
+  animateOutTime: 1
+--- !u!95 &1646507027719452511
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728644477525301538}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 1575204695474248043, guid: 754fa75e22e5141f4b3e493597df0851, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &8745857471084208423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728644477525301538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e364d6588044a41cfb57ba78ebf8ced3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1646507027719452511}
+  animationName: Idle
 --- !u!1001 &1631728786660257268
 PrefabInstance:
   m_ObjectHideFlags: 0

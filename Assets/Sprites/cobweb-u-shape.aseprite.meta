@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 171df6db5db5a40ffaa35f6f9a040d0b
+guid: d23167b92266a49e8b57350811d47599
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -113,18 +113,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   multiSpriteImportData:
-  - name: bone
+  - name: cobweb-u-shape
     originalName: 
-    pivot: {x: 0.4615385, y: 0.5}
+    pivot: {x: 0.5, y: 0.8}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 13
-      height: 6
-    spriteID: 156123fb0353d4c58b36040ef616e622
+      width: 16
+      height: 10
+    spriteID: 89da8a643775f40c1bc31a81215ad663
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -133,21 +133,105 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: cobweb-u-shape_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.8}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 28
+      y: 4
+      width: 16
+      height: 10
+    spriteID: 735ba1eff0d9943ca9ccf715b84f7ed5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 28, y: 4}
+  - name: cobweb-u-shape_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.8}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 22
+      width: 16
+      height: 10
+    spriteID: b4d1f756d0bc34043af5f3630ff970cd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 22}
+  - name: cobweb-u-shape_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: 0.8}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 28
+      y: 22
+      width: 16
+      height: 10
+    spriteID: bf56b44cc05f44518a0c6a9e873c7436
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 28, y: 22}
   asepriteLayers:
   - layerIndex: 0
-    guid: -1185446012
-    name: bone
+    guid: -360114366
+    name: cobweb-u-shape
     layerFlags: 0
     layerType: 0
     cells:
-    - name: bone
+    - name: cobweb-u-shape_Frame_0
       frameIndex: 0
       cellRect:
-        x: 2
-        y: 5
-        width: 13
-        height: 6
-      spriteId: 156123fb0353d4c58b36040ef616e622
+        x: 0
+        y: 0
+        width: 16
+        height: 10
+      spriteId: 89da8a643775f40c1bc31a81215ad663
+    - name: cobweb-u-shape_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 0
+        y: 0
+        width: 16
+        height: 10
+      spriteId: 735ba1eff0d9943ca9ccf715b84f7ed5
+    - name: cobweb-u-shape_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 0
+        y: 0
+        width: 16
+        height: 10
+      spriteId: b4d1f756d0bc34043af5f3630ff970cd
+    - name: cobweb-u-shape_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 0
+        y: 0
+        width: 16
+        height: 10
+      spriteId: bf56b44cc05f44518a0c6a9e873c7436
     linkedCells: []
     parentIndex: -1
   platformSettings: []
