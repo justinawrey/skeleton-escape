@@ -125,10 +125,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 4102953931989697235}
   spriteRenderer: {fileID: 4102953931989697245}
+  boxCollider: {fileID: -6279792251203487220}
   groundCheck: {fileID: 4102953932184685577}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  bounceLayer:
+    serializedVersion: 2
+    m_Bits: 128
   maxVelocity: 7
   runAcceleration: 4.9
   runDeceleration: 4.9
@@ -145,6 +149,9 @@ MonoBehaviour:
   jumpBuffer: 0.1
   jumpTimingBuffer: 0.3
   postBounceTimingBuffer: 0.1
+  iFramesGravityMultiplier: 0.2
+  iFramesLength: 0.5
+  iFrameRecoilMultiplier: 2
 --- !u!95 &4102953931989697242
 Animator:
   serializedVersion: 5

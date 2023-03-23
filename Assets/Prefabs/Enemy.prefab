@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 5484183904964659431}
   - component: {fileID: 4326406102817475205}
   - component: {fileID: -7076796878379513839}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Deals Damage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

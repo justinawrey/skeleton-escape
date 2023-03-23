@@ -8,11 +8,14 @@ public class PlayerController : MonoBehaviour
   private float jumpBufferCounter = 0f;
   private float jumpTimingBufferCounter = 0f;
   private bool groundCheckEnabled = true;
+  private bool inIFrames = false;
 
   public Rigidbody2D rb;
   public SpriteRenderer spriteRenderer;
+  public BoxCollider2D boxCollider;
   public Transform groundCheck;
   public LayerMask groundLayer;
+  public LayerMask bounceLayer;
 
   public float maxVelocity = 2f;
   public float runAcceleration = 1.5f;
@@ -30,6 +33,9 @@ public class PlayerController : MonoBehaviour
   public float jumpBuffer = 0.2f;
   public float jumpTimingBuffer = 0.3f;
   public float postBounceTimingBuffer = 0.1f;
+  public float iFramesGravityMultiplier = 0.5f;
+  public float iFramesLength = 1.5f;
+  public float iFrameRecoilMultiplier = 1.2f;
 
   private void Update()
   {
@@ -40,8 +46,8 @@ public class PlayerController : MonoBehaviour
       coyoteTimeCounter = coyoteTime;
     }
 
-    input.x = Input.GetAxisRaw("Horizontal");
-    input.y = Input.GetAxisRaw("Vertical");
+    input.x = InputController.GetAxisHorz();
+    input.y = InputController.GetAxisVert();
 
     if (input.x > 0)
     {
@@ -52,7 +58,7 @@ public class PlayerController : MonoBehaviour
       spriteRenderer.flipX = true;
     }
 
-    if (Input.GetKeyDown(KeyCode.Space))
+    if (InputController.GetSpaceDown())
     {
       jumpBufferCounter = jumpBuffer;
       jumpTimingBufferCounter = jumpTimingBuffer;
@@ -73,19 +79,22 @@ public class PlayerController : MonoBehaviour
       StartCoroutine(GroundCheckDelayRoutine());
     }
 
-    if (Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > 0)
+    if (InputController.GetSpaceUp() && rb.velocity.y > 0)
     {
       rb.AddForce(Vector2.down * rb.velocity.y * (1 - jumpCutMultiplier), ForceMode2D.Impulse);
     }
 
-    // Extra fall gravity
-    if (rb.velocity.y < 0)
+    if (!inIFrames)
     {
-      rb.gravityScale = gravityScale * fallGravityMultiplier;
-    }
-    else
-    {
-      rb.gravityScale = gravityScale;
+      // Extra fall gravity
+      if (rb.velocity.y < 0)
+      {
+        rb.gravityScale = gravityScale * fallGravityMultiplier;
+      }
+      else
+      {
+        rb.gravityScale = gravityScale;
+      }
     }
   }
 
@@ -161,23 +170,58 @@ public class PlayerController : MonoBehaviour
 
   private void OnTriggerEnter2D(Collider2D other)
   {
-    Respawnable respawnable = other.gameObject.GetComponent<Respawnable>();
-    if (respawnable)
+    if (other.gameObject.tag == "Deals Damage")
     {
-      rb.velocity = new Vector2(rb.velocity.x, 0);
+      Collider2D footCollider = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.5f, 0.1f), CapsuleDirection2D.Horizontal, 0, bounceLayer);
 
-      if (jumpTimingBufferCounter > 0)
+      // Then we can jump off of it
+      if (footCollider)
       {
-        Jump(jumpOffEnemyWithTimingForce);
-        jumpTimingBufferCounter = 0;
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+
+        if (jumpTimingBufferCounter > 0)
+        {
+          Jump(jumpOffEnemyWithTimingForce);
+          jumpTimingBufferCounter = 0;
+        }
+        else
+        {
+          Jump(jumpOffEnemyForce);
+        }
+
+        Respawnable respawnable = other.gameObject.GetComponent<Respawnable>();
+        StartCoroutine(respawnable.PeriodicallyKillRespawnableRoutine());
       }
+      // Otherwise take damage :(
       else
       {
-        Jump(jumpOffEnemyForce);
+        StartCoroutine(IFramesRoutine());
       }
-
-      StartCoroutine(respawnable.PeriodicallyKillRespawnableRoutine());
     }
+  }
+
+  private IEnumerator IFramesRoutine()
+  {
+    InputController.inputEnabled = false;
+    boxCollider.enabled = false;
+    inIFrames = true;
+    rb.gravityScale = gravityScale * iFramesGravityMultiplier;
+    Vector2 currVelocity = rb.velocity;
+    rb.velocity = new Vector2(0, 0);
+    rb.AddForce(new Vector2(-currVelocity.x, -currVelocity.y).normalized * iFrameRecoilMultiplier, ForceMode2D.Impulse);
+
+    float interval = iFramesLength / 5;
+    for (float i = 0; i <= iFramesLength; i += interval)
+    {
+      spriteRenderer.enabled = !spriteRenderer.enabled;
+      yield return new WaitForSeconds(interval);
+    }
+
+    inIFrames = false;
+    spriteRenderer.enabled = true;
+    InputController.inputEnabled = true;
+    boxCollider.enabled = true;
+    yield return null;
   }
 }
 
