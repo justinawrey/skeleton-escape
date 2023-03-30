@@ -3,20 +3,27 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-  private Vector2 input;
-  private float coyoteTimeCounter = 0f;
-  private float jumpBufferCounter = 0f;
-  private float jumpTimingBufferCounter = 0f;
-  private bool groundCheckEnabled = true;
-  private bool inIFrames = false;
+  // States
+  public GroundedState groundedState { private set; get; }
+  public AirbornState airbornState { private set; get; }
+  public IFramesState iFramesState { private set; get; }
+  public BaseState currentState { private set; get; }
 
-  public Rigidbody2D rb;
-  public SpriteRenderer spriteRenderer;
-  public BoxCollider2D boxCollider;
-  public Transform groundCheck;
-  public LayerMask groundLayer;
-  public LayerMask bounceLayer;
+  // Input
+  public float horizontalAxis { private set; get; }
+  public bool spaceKeyDown { private set; get; }
+  public bool spaceKeyUp { private set; get; }
 
+  // Components
+  public Rigidbody2D rb { private set; get; }
+  public SpriteRenderer spriteRenderer { private set; get; }
+  public BoxCollider2D boxCollider { private set; get; }
+
+  // Leeway Timers
+  public Leeway coyoteTime { private set; get; }
+  public Leeway jumpBuffer { private set; get; }
+
+  [Header("Movement Parameters")]
   public float maxVelocity = 2f;
   public float runAcceleration = 1.5f;
   public float runDeceleration = 1.5f;
@@ -29,199 +36,200 @@ public class PlayerController : MonoBehaviour
   public float jumpOffEnemyForce = 1f;
   public float jumpOffEnemyWithTimingForce = 1f;
   public float jumpCutMultiplier = 0.1f;
-  public float coyoteTime = 0.15f;
-  public float jumpBuffer = 0.2f;
-  public float jumpTimingBuffer = 0.3f;
+  public float coyoteTimeAmount = 0.15f;
+  public float jumpBufferAmount = 0.2f;
   public float postBounceTimingBuffer = 0.1f;
   public float iFramesGravityMultiplier = 0.5f;
   public float iFramesLength = 1.5f;
   public float iFrameRecoilMultiplier = 1.2f;
 
-  private void Update()
+  [Header("Debug Options")]
+  public bool logStateContinuously = false;
+  public float logInterval = 1f;
+  private Coroutine logStateRoutine;
+
+  private void Start()
   {
-    coyoteTimeCounter -= Time.deltaTime;
+    rb = GetComponent<Rigidbody2D>();
+    spriteRenderer = GetComponent<SpriteRenderer>();
+    boxCollider = GetComponent<BoxCollider2D>();
 
-    if (groundCheckEnabled && Grounded())
+    groundedState = new GroundedState(this);
+    airbornState = new AirbornState(this);
+    iFramesState = new IFramesState(this);
+    currentState = groundedState;
+
+    coyoteTime = new Leeway(coyoteTimeAmount);
+    jumpBuffer = new Leeway(jumpBufferAmount);
+
+    if (logStateContinuously)
     {
-      coyoteTimeCounter = coyoteTime;
+      logStateRoutine = StartCoroutine(LogStateRoutine());
     }
+  }
 
-    input.x = InputController.GetAxisHorz();
-    input.y = InputController.GetAxisVert();
+  private void OnDestroy()
+  {
+    if (logStateRoutine != null)
+    {
+      StopCoroutine(LogStateRoutine());
+    }
+  }
 
-    if (input.x > 0)
+  private IEnumerator LogStateRoutine()
+  {
+    while (true)
+    {
+      yield return new WaitForSeconds(logInterval);
+      print("Current state: " + currentState);
+    }
+  }
+
+  private void SetInputs()
+  {
+    horizontalAxis = InputController.GetAxisHorz();
+    spaceKeyDown = InputController.GetSpaceKeyDown();
+    spaceKeyUp = InputController.GetSpaceKeyUp();
+  }
+
+  private void FlipSprite()
+  {
+    if (horizontalAxis > 0)
     {
       spriteRenderer.flipX = false;
     }
-    else if (input.x < 0)
+    else if (horizontalAxis < 0)
     {
       spriteRenderer.flipX = true;
     }
+  }
 
-    if (InputController.GetSpaceDown())
+  private void TickTimers()
+  {
+    if (currentState == groundedState)
     {
-      jumpBufferCounter = jumpBuffer;
-      jumpTimingBufferCounter = jumpTimingBuffer;
+      coyoteTime.Reset();
     }
     else
     {
-      jumpBufferCounter -= Time.deltaTime;
-      jumpTimingBufferCounter -= Time.deltaTime;
+      coyoteTime.Tick(Time.deltaTime);
     }
 
-    if (coyoteTimeCounter > 0 && jumpBufferCounter > 0)
+    if (spaceKeyDown)
     {
-      coyoteTimeCounter = 0;
-      jumpBufferCounter = 0;
-      groundCheckEnabled = false;
-
-      Jump(jumpForce);
-      StartCoroutine(GroundCheckDelayRoutine());
+      jumpBuffer.Reset();
     }
-
-    if (InputController.GetSpaceUp() && rb.velocity.y > 0)
+    else
     {
-      rb.AddForce(Vector2.down * rb.velocity.y * (1 - jumpCutMultiplier), ForceMode2D.Impulse);
+      jumpBuffer.Tick(Time.deltaTime);
     }
+  }
 
-    if (!inIFrames)
-    {
-      // Extra fall gravity
-      if (rb.velocity.y < 0)
-      {
-        rb.gravityScale = gravityScale * fallGravityMultiplier;
-      }
-      else
-      {
-        rb.gravityScale = gravityScale;
-      }
-    }
+  private void Update()
+  {
+    SetInputs();
+    FlipSprite();
+    TickTimers();
+
+    SetState(currentState.Update());
   }
 
   private void FixedUpdate()
   {
-    // Calculate the direction we want to move in and our desired velocity
-    float targetSpeed;
-    float platformSpeed = GetMovingPlatformSpeed();
-    bool onPlatform = platformSpeed != 0;
-    float groundedSpeed = input.x * maxVelocity;
-
-    if (onPlatform)
-      targetSpeed = groundedSpeed + platformSpeed;
-    else
-      targetSpeed = groundedSpeed;
-
-    // Gets an acceleration value based on if we are accelerating (includes turning) 
-    // or trying to decelerate (stop). As well as applying a multiplier if we're air borne.
-    float accelRate;
-    if (Grounded())
-      accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? runAcceleration : runDeceleration;
-    else
-      accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? runAcceleration * airAcceleration : runDeceleration * airDeceleration;
-
-    // Calculate difference between current velocity and desired velocity
-    float speedDiff = targetSpeed - rb.velocity.x;
-    float movement = speedDiff * accelRate;
-
-    // Convert this to a vector and apply to rigidbody
-    rb.AddForce(movement * Vector2.right);
-
-    // Add stopping friction ONLY if not on moving platform
-    if (Grounded() && !onPlatform && input.x == 0)
-    {
-      float amount = Mathf.Min(Mathf.Abs(rb.velocity.x), friction);
-      amount *= Mathf.Sign(rb.velocity.x);
-      rb.AddForce(Vector2.right * -amount, ForceMode2D.Impulse);
-    }
+    currentState.FixedUpdate();
   }
 
-  private bool Grounded()
+  public Collider2D GetGroundedCollider()
+  {
+    return Physics2D.OverlapCapsule(transform.position, new Vector2(0.2f, 0.03f), CapsuleDirection2D.Horizontal, 0, LayerMask.GetMask("Ground"));
+  }
+
+  private bool CheckGround()
   {
     return GetGroundedCollider();
   }
 
-  private Collider2D GetGroundedCollider()
-  {
-    return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.2f, 0.03f), CapsuleDirection2D.Horizontal, 0, groundLayer);
-  }
-
-  private float GetMovingPlatformSpeed()
-  {
-    Collider2D collider = GetGroundedCollider();
-    if (collider && collider.gameObject.tag == "Moving Platform")
-    {
-      return collider.gameObject.GetComponent<MotionBetweenPoints>().GetCurrMovementVelocityX();
-    }
-
-    return 0f;
-  }
-
-  private IEnumerator GroundCheckDelayRoutine()
-  {
-    yield return new WaitForSeconds(0.2f);
-    groundCheckEnabled = true;
-    yield return null;
-  }
-
-  private void Jump(float force)
+  public void Jump(float force)
   {
     rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+    coyoteTime.Invalidate();
+    jumpBuffer.Invalidate();
+    SetState(airbornState);
+  }
+
+  public void SetState(BaseState state)
+  {
+    currentState = state;
+  }
+
+  private void OnCollisionStay2D(Collision2D collision)
+  {
+    bool collidedWithGroundLayer = collision.gameObject.layer == LayerMask.NameToLayer("Ground");
+    bool collidedAtFeet = CheckGround();
+    if (collidedWithGroundLayer && collidedAtFeet)
+    {
+      if (jumpBuffer.Valid())
+      {
+        Jump(jumpForce);
+      }
+      else
+      {
+        SetState(groundedState);
+      }
+    }
+  }
+
+  private void OnCollisionExit2D(Collision2D collision)
+  {
+    bool leftGroundLayer = collision.gameObject.layer == LayerMask.NameToLayer("Ground");
+    if (leftGroundLayer)
+    {
+      SetState(airbornState);
+    }
   }
 
   private void OnTriggerEnter2D(Collider2D other)
   {
     if (other.gameObject.tag == "Deals Damage")
     {
-      Collider2D footCollider = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.5f, 0.1f), CapsuleDirection2D.Horizontal, 0, bounceLayer);
-
-      // Then we can jump off of it
-      if (footCollider)
-      {
-        rb.velocity = new Vector2(rb.velocity.x, 0);
-
-        if (jumpTimingBufferCounter > 0)
-        {
-          Jump(jumpOffEnemyWithTimingForce);
-          jumpTimingBufferCounter = 0;
-        }
-        else
-        {
-          Jump(jumpOffEnemyForce);
-        }
-
-        Respawnable respawnable = other.gameObject.GetComponent<Respawnable>();
-        StartCoroutine(respawnable.PeriodicallyKillRespawnableRoutine());
-      }
-      // Otherwise take damage :(
-      else
-      {
-        StartCoroutine(IFramesRoutine());
-      }
+      OnTriggerEnter2DEnemy(other);
     }
   }
 
-  private IEnumerator IFramesRoutine()
+  private Collider2D GetBounceCollider()
   {
-    InputController.inputEnabled = false;
-    boxCollider.enabled = false;
-    inIFrames = true;
-    rb.gravityScale = gravityScale * iFramesGravityMultiplier;
-    Vector2 currVelocity = rb.velocity;
-    rb.velocity = new Vector2(0, 0);
-    rb.AddForce(new Vector2(-currVelocity.x, -currVelocity.y).normalized * iFrameRecoilMultiplier, ForceMode2D.Impulse);
+    return Physics2D.OverlapCapsule(transform.position, new Vector2(0.5f, 0.1f), CapsuleDirection2D.Horizontal, 0, LayerMask.GetMask("Bounce"));
+  }
 
-    float interval = iFramesLength / 5;
-    for (float i = 0; i <= iFramesLength; i += interval)
+  private void BounceOffEnemy(Collider2D other)
+  {
+    rb.velocity = new Vector2(rb.velocity.x, 0);
+
+    if (jumpBuffer.Valid())
     {
-      spriteRenderer.enabled = !spriteRenderer.enabled;
-      yield return new WaitForSeconds(interval);
+      Jump(jumpOffEnemyWithTimingForce);
+    }
+    else
+    {
+      Jump(jumpOffEnemyForce);
     }
 
-    inIFrames = false;
-    spriteRenderer.enabled = true;
-    InputController.inputEnabled = true;
-    boxCollider.enabled = true;
-    yield return null;
+    Respawnable respawnable = other.gameObject.GetComponent<Respawnable>();
+    StartCoroutine(respawnable.PeriodicallyKillRespawnableRoutine());
+    SetState(airbornState);
+  }
+
+  private void OnTriggerEnter2DEnemy(Collider2D other)
+  {
+    Collider2D bounceCollider = GetBounceCollider();
+
+    if (bounceCollider)
+    {
+      BounceOffEnemy(other);
+    }
+    else
+    {
+      StartCoroutine(iFramesState.IFramesRoutine());
+    }
   }
 }
-

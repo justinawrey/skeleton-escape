@@ -24,7 +24,7 @@ public static class InputController
     return Input.GetAxisRaw("Vertical");
   }
 
-  public static bool GetSpaceDown()
+  public static bool GetSpaceKeyDown()
   {
     if (!inputEnabled)
     {
@@ -35,7 +35,7 @@ public static class InputController
   }
 
 
-  public static bool GetSpaceUp()
+  public static bool GetSpaceKeyUp()
   {
     if (!inputEnabled)
     {

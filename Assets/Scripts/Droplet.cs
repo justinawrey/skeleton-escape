@@ -3,7 +3,6 @@ using UnityEngine;
 public class Droplet : MonoBehaviour
 {
   public Animator animator;
-  public LayerMask groundLayer;
 
   private void Start()
   {
