@@ -7,8 +7,8 @@ public class PlayerController : MonoBehaviour
   public GroundedState groundedState { private set; get; }
   public AirbornState airbornState { private set; get; }
   public IFramesState iFramesState { private set; get; }
-  public BaseState currentState { private set; get; }
-  public string subState { private set; get; }
+  public static BaseState currentState { private set; get; }
+  public static string subState { private set; get; }
 
   // Input
   public float horizontalAxis { private set; get; }

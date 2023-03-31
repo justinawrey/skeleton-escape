@@ -11621,12 +11621,16 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4102953931989697240, guid: 00cd1b2e3a21d4e6789f49b0780c48bf, type: 3}
+      propertyPath: includeSubState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4102953931989697240, guid: 00cd1b2e3a21d4e6789f49b0780c48bf, type: 3}
       propertyPath: coyoteTimeAmount
       value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 4102953931989697240, guid: 00cd1b2e3a21d4e6789f49b0780c48bf, type: 3}
       propertyPath: logStateContinuously
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4102953931989697246, guid: 00cd1b2e3a21d4e6789f49b0780c48bf, type: 3}
       propertyPath: m_RootOrder

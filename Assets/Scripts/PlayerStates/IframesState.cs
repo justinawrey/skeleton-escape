@@ -7,7 +7,7 @@ public class IFramesState : BaseState
 
   public IEnumerator IFramesRoutine()
   {
-    BaseState prevState = ctx.currentState;
+    BaseState prevState = PlayerController.currentState;
     ctx.SetState(ctx.iFramesState);
     ctx.boxCollider.enabled = false;
     ctx.rb.gravityScale = ctx.gravityScale * ctx.iFramesGravityMultiplier;
