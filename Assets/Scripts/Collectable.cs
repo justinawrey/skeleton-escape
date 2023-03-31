@@ -21,12 +21,15 @@ public class Collectable : MonoBehaviour
   public float bobAmount = 0.1f;
   public float bobTime = 0.5f;
 
+  private CameraEffects cameraEffects;
+
   private void Start()
   {
     slowlyDie = GameObject.Find("Fullness").GetComponent<SlowlyDie>();
     spriteRenderer = GetComponent<SpriteRenderer>();
     boxCollider = GetComponent<BoxCollider2D>();
     animator = GetComponent<Animator>();
+    cameraEffects = Camera.main.GetComponent<CameraEffects>();
     initialPos = transform.position;
 
     float offset = Random.Range(-0.09f, 0.09f);
@@ -75,6 +78,7 @@ public class Collectable : MonoBehaviour
     {
       slowlyDie.AddToFullness(fullnessAmt);
       StartCoroutine(RespawnRoutine());
+      cameraEffects.Zoom();
     }
   }
 

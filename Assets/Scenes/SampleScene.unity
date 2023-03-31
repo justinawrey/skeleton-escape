@@ -7114,15 +7114,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.067537144
-    y: 0.0672538
-    width: 0.8644755
-    height: 0.86469173
+    x: 0.07083334
+    y: 0.7777778
+    width: 0.33333334
+    height: 0.3333333
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5.625
+  orthographic size: 7.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -7234,6 +7234,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  zoomMultiplier: 1.05
+  zoomTransitionDuration: 0.5
+  zoomDuration: 0.15
   printCameraOffset: 0
 --- !u!4 &580985077 stripped
 Transform:

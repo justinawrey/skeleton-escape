@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2135833861
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -5783973253601901186, guid: 62dc47e1dba354df78fb6b0a3b19e5b8, type: 3}
   m_Color: {r: 0.73333335, g: 0.67058825, b: 0.7137255, a: 1}
@@ -101,7 +101,7 @@ MonoBehaviour:
   fullYCoord: -0.405
   emptyYCoord: -1.281
   timeToEmpty: 5
-  allowDraining: 1
+  allowDraining: 0
 --- !u!95 &3690675503219605487
 Animator:
   serializedVersion: 5
@@ -122,6 +122,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5702020351206863355
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +156,7 @@ Transform:
   m_Children:
   - {fileID: 7320346540147820218}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!331 &4650020902482854073
 SpriteMask:
@@ -247,7 +248,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2135833861
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 2986664406989901086, guid: 5c40a04d239ad40f3a7119349fb05576, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -273,5 +274,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 3746594213881700608}
-  xOffset: 1
+  xOffset: 0.5
   yOffset: 0.5
