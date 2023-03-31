@@ -7,7 +7,6 @@ public class Leeway
   public Leeway(float amount)
   {
     this.amount = amount;
-    this.counter = amount;
   }
 
   public void Reset()

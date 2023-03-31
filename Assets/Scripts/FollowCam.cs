@@ -16,8 +16,7 @@ public class FollowCam : MonoBehaviour
   private void Update()
   {
     Vector2 desiredPosition = (Vector2)player.transform.position + offset;
-    float calculatedSmoothSpeed = rb.velocity.y >= -10 ? smoothSpeed : smoothSpeed * 2;
-    Vector2 smoothedPosition = Vector2.Lerp(transform.position, desiredPosition, calculatedSmoothSpeed * Time.deltaTime);
+    Vector2 smoothedPosition = Vector2.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
     transform.position = new Vector3(transform.position.x, smoothedPosition.y, transform.position.z);
   }
 }

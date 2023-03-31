@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour
   // Leeway Timers
   public Leeway coyoteTime { private set; get; }
   public Leeway jumpBuffer { private set; get; }
+  public Leeway bounceBuffer { private set; get; }
+
+  // Other
+  private Shake shakeEffect;
 
   [Header("Movement Parameters")]
   public float maxVelocity = 2f;
@@ -38,7 +42,7 @@ public class PlayerController : MonoBehaviour
   public float jumpCutMultiplier = 0.1f;
   public float coyoteTimeAmount = 0.15f;
   public float jumpBufferAmount = 0.2f;
-  public float postBounceTimingBuffer = 0.1f;
+  public float bounceBufferAmount = 0.35f;
   public float iFramesGravityMultiplier = 0.5f;
   public float iFramesLength = 1.5f;
   public float iFrameRecoilMultiplier = 1.2f;
@@ -61,6 +65,9 @@ public class PlayerController : MonoBehaviour
 
     coyoteTime = new Leeway(coyoteTimeAmount);
     jumpBuffer = new Leeway(jumpBufferAmount);
+    bounceBuffer = new Leeway(bounceBufferAmount);
+
+    shakeEffect = Camera.main.GetComponent<Shake>();
 
     if (logStateContinuously)
     {
@@ -118,10 +125,12 @@ public class PlayerController : MonoBehaviour
     if (spaceKeyDown)
     {
       jumpBuffer.Reset();
+      bounceBuffer.Reset();
     }
     else
     {
       jumpBuffer.Tick(Time.deltaTime);
+      bounceBuffer.Tick(Time.deltaTime);
     }
   }
 
@@ -154,6 +163,7 @@ public class PlayerController : MonoBehaviour
     rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
     coyoteTime.Invalidate();
     jumpBuffer.Invalidate();
+    bounceBuffer.Invalidate();
     SetState(airbornState);
   }
 
@@ -205,7 +215,7 @@ public class PlayerController : MonoBehaviour
   {
     rb.velocity = new Vector2(rb.velocity.x, 0);
 
-    if (jumpBuffer.Valid())
+    if (bounceBuffer.Valid())
     {
       Jump(jumpOffEnemyWithTimingForce);
     }
@@ -230,6 +240,7 @@ public class PlayerController : MonoBehaviour
     else
     {
       StartCoroutine(iFramesState.IFramesRoutine());
+      StartCoroutine(shakeEffect.ShakeRoutine());
     }
   }
 }

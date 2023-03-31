@@ -4921,6 +4921,7 @@ GameObject:
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5006,10 +5007,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.067537144
-    y: 0.0672538
-    width: 0.8644755
-    height: 0.86469173
+    x: 0.032163743
+    y: 0.062370062
+    width: 0.9356725
+    height: 0.9355509
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -5085,6 +5086,70 @@ MonoBehaviour:
   player: {fileID: 244996022}
   offset: {x: 0, y: 2}
   smoothSpeed: 10
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5229ffb5b1c1445e5a5544c279eb6f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 1
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1.9047258
+      outSlope: 1.9047258
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.10747056
+      value: 0.20470195
+      inSlope: 0.79870415
+      outSlope: 0.79870415
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.32142565
+      value: 0.13894981
+      inSlope: -0.61827916
+      outSlope: -0.61827916
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.4624062
+    - serializedVersion: 3
+      time: 0.7272101
+      value: 0.005019136
+      inSlope: -0.26169437
+      outSlope: -0.26169437
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.27989185
+      outWeight: 0.44045204
+    - serializedVersion: 3
+      time: 1.0025024
+      value: -0.008636475
+      inSlope: -0.049604032
+      outSlope: -0.049604032
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &580985077 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4938199142173992829, guid: f6f270176842d4a72a4495a594722d99, type: 3}
@@ -9471,6 +9536,10 @@ PrefabInstance:
     - target: {fileID: 4102953931989697240, guid: 00cd1b2e3a21d4e6789f49b0780c48bf, type: 3}
       propertyPath: logInterval
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4102953931989697240, guid: 00cd1b2e3a21d4e6789f49b0780c48bf, type: 3}
+      propertyPath: coyoteTimeAmount
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 4102953931989697240, guid: 00cd1b2e3a21d4e6789f49b0780c48bf, type: 3}
       propertyPath: logStateContinuously
