@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
   public AirbornState airbornState { private set; get; }
   public IFramesState iFramesState { private set; get; }
   public BaseState currentState { private set; get; }
+  public string subState { private set; get; }
 
   // Input
   public float horizontalAxis { private set; get; }
@@ -25,7 +26,7 @@ public class PlayerController : MonoBehaviour
   public Leeway bounceBuffer { private set; get; }
 
   // Other
-  private Shake shakeEffect;
+  private CameraEffects cameraEffects;
 
   [Header("Movement Parameters")]
   public float maxVelocity = 2f;
@@ -49,6 +50,7 @@ public class PlayerController : MonoBehaviour
 
   [Header("Debug Options")]
   public bool logStateContinuously = false;
+  public bool includeSubState = false;
   public float logInterval = 1f;
   private Coroutine logStateRoutine;
 
@@ -61,13 +63,14 @@ public class PlayerController : MonoBehaviour
     groundedState = new GroundedState(this);
     airbornState = new AirbornState(this);
     iFramesState = new IFramesState(this);
-    currentState = groundedState;
+    SetState(groundedState);
+    SetSubstate(groundedState.ToString());
 
     coyoteTime = new Leeway(coyoteTimeAmount);
     jumpBuffer = new Leeway(jumpBufferAmount);
     bounceBuffer = new Leeway(bounceBufferAmount);
 
-    shakeEffect = Camera.main.GetComponent<Shake>();
+    cameraEffects = Camera.main.GetComponent<CameraEffects>();
 
     if (logStateContinuously)
     {
@@ -88,7 +91,14 @@ public class PlayerController : MonoBehaviour
     while (true)
     {
       yield return new WaitForSeconds(logInterval);
-      print("Current state: " + currentState);
+
+      string info = "State: " + currentState;
+      if (includeSubState)
+      {
+        info += " Substate: " + subState;
+      }
+
+      print(info);
     }
   }
 
@@ -169,7 +179,22 @@ public class PlayerController : MonoBehaviour
 
   public void SetState(BaseState state)
   {
+    // If returned state is null, preserve current state and substate
+    if (state == null)
+    {
+      return;
+    }
+
     currentState = state;
+
+    // Just reset the substate to stringified state in order
+    // to invalidate substate changes from individual states
+    SetSubstate(currentState.ToString());
+  }
+
+  public void SetSubstate(string _subState)
+  {
+    subState = _subState;
   }
 
   private void OnCollisionStay2D(Collision2D collision)
@@ -240,7 +265,7 @@ public class PlayerController : MonoBehaviour
     else
     {
       StartCoroutine(iFramesState.IFramesRoutine());
-      StartCoroutine(shakeEffect.ShakeRoutine());
+      StartCoroutine(cameraEffects.ShakeRoutine());
     }
   }
 }

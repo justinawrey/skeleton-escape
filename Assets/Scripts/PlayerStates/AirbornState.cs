@@ -4,6 +4,8 @@ public class AirbornState : BaseState
 {
   public AirbornState(PlayerController context) : base(context) { }
 
+  public static string FallingSubState = "Airborn.Falling";
+
   public override BaseState Update()
   {
     // We ran off a ledge but still tried to jump in coyote time
@@ -12,9 +14,15 @@ public class AirbornState : BaseState
       ctx.Jump(ctx.jumpForce);
     }
 
+    // Used for follow cam
+    if (ctx.rb.velocity.y < 0)
+    {
+      ctx.SetSubstate(FallingSubState);
+    }
+
     ApplyJumpCut();
     ApplyFallGravity();
-    return ctx.airbornState;
+    return null;
   }
 
   public override void FixedUpdate()

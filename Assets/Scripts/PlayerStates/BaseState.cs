@@ -6,6 +6,6 @@ public class BaseState
     this.ctx = ctx;
   }
 
-  public virtual BaseState Update() { return ctx.currentState; }
+  public virtual BaseState Update() { return null; }
   public virtual void FixedUpdate() { }
 }

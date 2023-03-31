@@ -14,7 +14,7 @@ public class GroundedState : BaseState
     }
 
     // Otherwise stay in grounded state
-    return ctx.groundedState;
+    return null;
   }
 
   public override void FixedUpdate()
