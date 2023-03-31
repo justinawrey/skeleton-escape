@@ -15,7 +15,11 @@ GameObject:
   - component: {fileID: 5484183904964659431}
   - component: {fileID: 4326406102817475205}
   - component: {fileID: -7076796878379513839}
+<<<<<<< HEAD
   m_Layer: 7
+=======
+  m_Layer: 6
+>>>>>>> ed03322 (test)
   m_Name: Enemy
   m_TagString: Deals Damage
   m_Icon: {fileID: 0}
@@ -107,6 +111,15 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
+<<<<<<< HEAD
+=======
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+>>>>>>> ed03322 (test)
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -121,6 +134,28 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+<<<<<<< HEAD
+=======
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+>>>>>>> ed03322 (test)
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -173,6 +208,10 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+<<<<<<< HEAD
+=======
+  m_WriteDefaultValuesOnDisable: 0
+>>>>>>> ed03322 (test)
 --- !u!114 &-7076796878379513839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +231,10 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+<<<<<<< HEAD
+=======
+    serializedVersion: 3
+>>>>>>> ed03322 (test)
     m_TransformParent: {fileID: 4938199142173992829}
     m_Modifications:
     - target: {fileID: 563215747780186257, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
@@ -1383,6 +1426,13 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 563215747780186257, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
+<<<<<<< HEAD
+=======
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 563215747780186257, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
+>>>>>>> ed03322 (test)
       propertyPath: m_Vertices.Array.data[16].color.a
       value: 1
       objectReference: {fileID: 0}
@@ -1479,6 +1529,21 @@ PrefabInstance:
       value: 0.95041823
       objectReference: {fileID: 0}
     - target: {fileID: 563215747780186257, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
+<<<<<<< HEAD
+=======
+      propertyPath: m_ApplyToSortingLayers.Array.data[0]
+      value: 304525025
+      objectReference: {fileID: 0}
+    - target: {fileID: 563215747780186257, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[2]
+      value: -355524237
+      objectReference: {fileID: 0}
+    - target: {fileID: 563215747780186257, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[3]
+      value: 1120910555
+      objectReference: {fileID: 0}
+    - target: {fileID: 563215747780186257, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
+>>>>>>> ed03322 (test)
       propertyPath: m_Vertices.Array.data[10].position.x
       value: -0.09544489
       objectReference: {fileID: 0}
@@ -2183,6 +2248,12 @@ PrefabInstance:
       value: Item Light
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+<<<<<<< HEAD
+=======
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+>>>>>>> ed03322 (test)
   m_SourcePrefab: {fileID: 100100000, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
 --- !u!1 &2443994140713050652 stripped
 GameObject:

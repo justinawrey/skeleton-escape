@@ -75,8 +75,13 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+<<<<<<< HEAD
   m_SortingLayerID: 0
   m_SortingLayer: 0
+=======
+  m_SortingLayerID: -355524237
+  m_SortingLayer: 1
+>>>>>>> ed03322 (test)
   m_SortingOrder: 0
   m_Sprite: {fileID: -1137354396046409054, guid: ce236e4c33e6d497c8e086d9872d160c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -109,6 +114,10 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+<<<<<<< HEAD
+=======
+  m_WriteDefaultValuesOnDisable: 0
+>>>>>>> ed03322 (test)
 --- !u!114 &141012515523585845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +148,15 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0.6
   m_Material: {fileID: 0}
+<<<<<<< HEAD
+=======
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+>>>>>>> ed03322 (test)
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -153,6 +171,28 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+<<<<<<< HEAD
+=======
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+>>>>>>> ed03322 (test)
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -174,6 +214,10 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+<<<<<<< HEAD
+=======
+    serializedVersion: 3
+>>>>>>> ed03322 (test)
     m_TransformParent: {fileID: 7176276827450720104}
     m_Modifications:
     - target: {fileID: 563215747780186257, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
@@ -673,6 +717,13 @@ PrefabInstance:
       value: 0.70710665
       objectReference: {fileID: 0}
     - target: {fileID: 563215747780186257, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
+<<<<<<< HEAD
+=======
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 563215747780186257, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
+>>>>>>> ed03322 (test)
       propertyPath: m_Vertices.Array.data[0].position.x
       value: 0.9985302
       objectReference: {fileID: 0}
@@ -745,6 +796,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 563215747780186257, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
+<<<<<<< HEAD
+=======
+      propertyPath: m_ApplyToSortingLayers.Array.data[0]
+      value: 304525025
+      objectReference: {fileID: 0}
+    - target: {fileID: 563215747780186257, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[2]
+      value: -355524237
+      objectReference: {fileID: 0}
+    - target: {fileID: 563215747780186257, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[3]
+      value: 1120910555
+      objectReference: {fileID: 0}
+    - target: {fileID: 563215747780186257, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
+>>>>>>> ed03322 (test)
       propertyPath: m_Vertices.Array.data[13].position.x
       value: -0.05222684
       objectReference: {fileID: 0}
@@ -1005,6 +1071,12 @@ PrefabInstance:
       value: Item Light
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+<<<<<<< HEAD
+=======
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+>>>>>>> ed03322 (test)
   m_SourcePrefab: {fileID: 100100000, guid: aecb6ee37f59d4b4ba75aa4081ea3db9, type: 3}
 --- !u!4 &3413351574016235873 stripped
 Transform:

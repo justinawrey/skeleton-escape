@@ -4,8 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - Moving Platform
   - Deals Damage
+=======
+  - Deals Damage
+  - Moving Platform
+>>>>>>> ed03322 (test)
   layers:
   - Default
   - TransparentFX
@@ -13,7 +18,10 @@ TagManager:
   - Ground
   - Water
   - UI
+<<<<<<< HEAD
   - Player
+=======
+>>>>>>> ed03322 (test)
   - Bounce
   - 
   - 
@@ -39,16 +47,30 @@ TagManager:
   - 
   - 
   - 
+<<<<<<< HEAD
   m_SortingLayers:
   - name: Background
     uniqueID: 3802090385
+=======
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 304525025
+>>>>>>> ed03322 (test)
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Foreground
+<<<<<<< HEAD
     uniqueID: 574438517
     locked: 0
   - name: UI
     uniqueID: 2159133435
+=======
+    uniqueID: 3939443059
+    locked: 0
+  - name: UI
+    uniqueID: 1120910555
+>>>>>>> ed03322 (test)
     locked: 0
