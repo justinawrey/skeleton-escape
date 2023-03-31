@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
   public float runDeceleration = 1.5f;
   public float airAcceleration = 1.2f;
   public float airDeceleration = 1.2f;
+  public float maxFallVelocity = -15f;
   public float friction = 0.2f;
   public float gravityScale = 1f;
   public float fallGravityMultiplier = 1.5f;

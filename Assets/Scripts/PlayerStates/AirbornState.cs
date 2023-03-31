@@ -32,6 +32,16 @@ public class AirbornState : BaseState
     float speedDiff = targetSpeed - ctx.rb.velocity.x;
     float movement = speedDiff * accelRate;
     ctx.rb.AddForce(movement * Vector2.right);
+
+    LimitFallVelocity();
+  }
+
+  private void LimitFallVelocity()
+  {
+    if (ctx.rb.velocity.y < ctx.maxFallVelocity)
+    {
+      ctx.rb.velocity = new Vector2(ctx.rb.velocity.x, ctx.maxFallVelocity);
+    }
   }
 
   private void ApplyJumpCut()
