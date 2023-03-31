@@ -7545,10 +7545,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.057291668
-    y: 0.11111111
-    width: 1.6666667
-    height: 1.6666666
+    x: 0
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -7665,7 +7665,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  zoomMultiplier: 1
+  zoomMultiplier: 1.05
   zoomTransitionDuration: 0.5
   zoomDuration: 0.15
   printCameraOffset: 0
@@ -7826,7 +7826,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1931370118566498970, guid: 96432624ef5684c4e87a1e930c2cbed5, type: 3}
       propertyPath: allowDraining
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5332377002475578166, guid: 96432624ef5684c4e87a1e930c2cbed5, type: 3}
       propertyPath: m_RootOrder
@@ -11856,11 +11856,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4102953931989697246, guid: 00cd1b2e3a21d4e6789f49b0780c48bf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 4102953931989697246, guid: 00cd1b2e3a21d4e6789f49b0780c48bf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 4102953931989697246, guid: 00cd1b2e3a21d4e6789f49b0780c48bf, type: 3}
       propertyPath: m_LocalPosition.z
