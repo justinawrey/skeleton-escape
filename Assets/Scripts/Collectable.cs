@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Collectable : MonoBehaviour
 {
+  private PlayerController playerController;
   private SlowlyDie slowlyDie;
   private SpriteRenderer spriteRenderer;
   private BoxCollider2D boxCollider;
@@ -21,11 +22,21 @@ public class Collectable : MonoBehaviour
   public float bobAmount = 0.1f;
   public float bobTime = 0.5f;
 
+  [Header("Boost settings")]
+  [Range(1, 2)]
+  public float maxVelocityMultiplier = 1.2f;
+  [Range(1, 2)]
+  public float runAccelerationMultiplier = 1.2f;
+  [Range(1, 2)]
+  public float airAccelerationMultiplier = 1.2f;
+  public float boostDuration = 0.5f;
+
   private CameraEffects cameraEffects;
 
   private void Start()
   {
     slowlyDie = GameObject.Find("Fullness").GetComponent<SlowlyDie>();
+    playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     spriteRenderer = GetComponent<SpriteRenderer>();
     boxCollider = GetComponent<BoxCollider2D>();
     animator = GetComponent<Animator>();
@@ -78,8 +89,26 @@ public class Collectable : MonoBehaviour
     {
       slowlyDie.AddToFullness(fullnessAmt);
       StartCoroutine(RespawnRoutine());
+      StartCoroutine(BoostPlayerRoutine());
       cameraEffects.Zoom();
     }
+  }
+
+  private IEnumerator BoostPlayerRoutine()
+  {
+    float initialMaxVelocity = playerController.maxVelocity;
+    float initialRunAccel = playerController.runAcceleration;
+    float initialAirAccel = playerController.airAcceleration;
+
+    playerController.maxVelocity *= maxVelocityMultiplier;
+    playerController.runAcceleration *= runAccelerationMultiplier;
+    playerController.airAcceleration *= airAccelerationMultiplier;
+
+    yield return new WaitForSeconds(boostDuration);
+
+    playerController.maxVelocity = initialMaxVelocity;
+    playerController.runAcceleration = initialRunAccel;
+    playerController.airAcceleration = initialAirAccel;
   }
 
   private IEnumerator RespawnRoutine()
