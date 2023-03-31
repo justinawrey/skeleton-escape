@@ -7196,8 +7196,10 @@ MonoBehaviour:
   downwardsInputOffset: {x: 0, y: -4}
   leftwardsInputOffset: {x: 0, y: 0}
   rightwardsInputOffset: {x: 0, y: 0}
+  fallingOffset: {x: 0, y: 0}
   verticalSmoothing: 10
   horizontalSmoothing: 10
+  fallSmoothingMultiplier: 1
   screenShakeDuration: 1
   screenShakeStrengthOverTime:
     serializedVersion: 2

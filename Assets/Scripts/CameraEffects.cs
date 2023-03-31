@@ -12,8 +12,12 @@ public class CameraEffects : MonoBehaviour
   public Vector2 downwardsInputOffset = new Vector2(0, -1);
   public Vector2 leftwardsInputOffset = new Vector2(1, 1);
   public Vector2 rightwardsInputOffset = new Vector2(-1, 1);
+  public Vector2 fallingOffset = new Vector2(0, -1);
   public float verticalSmoothing = 10f;
   public float horizontalSmoothing = 10f;
+
+  [Range(0, 1)]
+  public float fallSmoothingMultiplier = 0.5f;
 
   [Header("Screen shake options")]
   public float screenShakeDuration = 1f;
@@ -31,7 +35,7 @@ public class CameraEffects : MonoBehaviour
   {
     Vector2 desiredPosition = (Vector2)player.transform.position + CalculateOffset();
     float x = Mathf.Lerp(transform.position.x, desiredPosition.x, horizontalSmoothing * Time.deltaTime);
-    float y = Mathf.Lerp(transform.position.y, desiredPosition.y, verticalSmoothing * Time.deltaTime);
+    float y = Mathf.Lerp(transform.position.y, desiredPosition.y, (Falling() ? verticalSmoothing * fallSmoothingMultiplier : verticalSmoothing) * Time.deltaTime);
     transform.position = new Vector3(x, y, transform.position.z);
 
     if (printCameraOffset)
@@ -63,6 +67,10 @@ public class CameraEffects : MonoBehaviour
     {
       offset += upwardsInputOffset;
     }
+    else if (Falling())
+    {
+      offset += fallingOffset;
+    }
 
     return offset;
   }
@@ -79,5 +87,10 @@ public class CameraEffects : MonoBehaviour
       transform.position = transform.position + Random.insideUnitSphere * strength;
       yield return null;
     }
+  }
+
+  private bool Falling()
+  {
+    return PlayerController.subState == AirbornState.FallingSubState;
   }
 }
