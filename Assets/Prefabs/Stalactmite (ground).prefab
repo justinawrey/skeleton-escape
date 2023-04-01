@@ -12,8 +12,6 @@ PrefabInstance:
       propertyPath: m_FlipY
       value: 1
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-=======
     - target: {fileID: -894301607284312673, guid: a3c95db9a16f247879e0e4051552bac0, type: 3}
       propertyPath: m_SortingLayer
       value: 1
@@ -22,7 +20,6 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -355524237
       objectReference: {fileID: 0}
->>>>>>> ed03322 (test)
     - target: {fileID: 5057849235332562971, guid: a3c95db9a16f247879e0e4051552bac0, type: 3}
       propertyPath: m_Name
       value: Stalactmite (ground)

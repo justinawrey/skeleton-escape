@@ -57,10 +57,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-<<<<<<< HEAD
-=======
   m_WriteDefaultValuesOnDisable: 0
->>>>>>> ed03322 (test)
 --- !u!212 &3265790479800968397
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -99,11 +96,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-<<<<<<< HEAD
-  m_SortingLayerID: -492876911
-=======
   m_SortingLayerID: 304525025
->>>>>>> ed03322 (test)
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 364738637649567849, guid: a44baf8789fdf4571a53024fbedc37be, type: 3}
@@ -127,8 +120,6 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-<<<<<<< HEAD
-=======
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -148,20 +139,14 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
->>>>>>> ed03322 (test)
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.007236503, y: 0.13749343}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-<<<<<<< HEAD
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.75, y: 0.625}
-=======
     pivot: {x: 0.54545456, y: 0}
     oldSize: {x: 0.6875, y: 0.5}
->>>>>>> ed03322 (test)
     newSize: {x: 0.75, y: 0.625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -187,15 +172,12 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
-<<<<<<< HEAD
-=======
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
->>>>>>> ed03322 (test)
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -238,11 +220,7 @@ MonoBehaviour:
   m_Intensity: 0.1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-<<<<<<< HEAD
-  m_ApplyToSortingLayers: 914b9fe200000000
-=======
   m_ApplyToSortingLayers: e1ae2612000000007321cfeadbbccf42
->>>>>>> ed03322 (test)
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
