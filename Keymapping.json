@@ -1,0 +1,67 @@
+{
+    "m_Id": "Keymapping",
+    "m_ParentId": "",
+    "m_Entries": [
+        {
+            "identifier": {
+                "path": "Stage/Go Back"
+            },
+            "combinations": [
+                {
+                    "m_KeyCode": 111,
+                    "m_Modifiers": 0
+                }
+            ]
+        },
+        {
+            "identifier": {
+                "path": "Stage/Enter Prefab Mode"
+            },
+            "combinations": []
+        },
+        {
+            "identifier": {
+                "path": "Stage/Edit Prefab in Isolation"
+            },
+            "combinations": [
+                {
+                    "m_KeyCode": 112,
+                    "m_Modifiers": 0
+                }
+            ]
+        },
+        {
+            "identifier": {
+                "path": "Grid Painting/Rotate Clockwise"
+            },
+            "combinations": [
+                {
+                    "m_KeyCode": 114,
+                    "m_Modifiers": 0
+                }
+            ]
+        },
+        {
+            "identifier": {
+                "path": "Grid Painting/Flip X"
+            },
+            "combinations": [
+                {
+                    "m_KeyCode": 121,
+                    "m_Modifiers": 0
+                }
+            ]
+        },
+        {
+            "identifier": {
+                "path": "Grid Painting/Flip Y"
+            },
+            "combinations": [
+                {
+                    "m_KeyCode": 120,
+                    "m_Modifiers": 0
+                }
+            ]
+        }
+    ]
+}

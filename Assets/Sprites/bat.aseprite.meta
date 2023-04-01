@@ -74,7 +74,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 7
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -84,7 +84,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 7
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -117,7 +117,7 @@ ScriptedImporter:
   multiSpriteImportData:
   - name: bat
     originalName: 
-    pivot: {x: 0.5294118, y: -0.25}
+    pivot: {x: 0.5294118, y: 0.49999997}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -137,7 +137,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 91}
   - name: bat_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: -0.33333334}
+    pivot: {x: 0.5, y: 0.4666667}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -157,7 +157,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 26}
   - name: bat_Frame_2
     originalName: 
-    pivot: {x: 0.5, y: -0.5}
+    pivot: {x: 0.5, y: 0.35714287}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -177,7 +177,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: bat_Frame_3
     originalName: 
-    pivot: {x: 0.5, y: -0.61538464}
+    pivot: {x: 0.5, y: 0.3076923}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -197,7 +197,7 @@ ScriptedImporter:
     uvTransform: {x: 68, y: 4}
   - name: bat_Frame_4
     originalName: 
-    pivot: {x: 0.5, y: -0.5384615}
+    pivot: {x: 0.5, y: 0.3846154}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -217,7 +217,7 @@ ScriptedImporter:
     uvTransform: {x: 100, y: 4}
   - name: bat_Frame_5
     originalName: 
-    pivot: {x: 0.5, y: -0.5384615}
+    pivot: {x: 0.5, y: 0.3846154}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -237,7 +237,7 @@ ScriptedImporter:
     uvTransform: {x: 64, y: 26}
   - name: bat_Frame_6
     originalName: 
-    pivot: {x: 0.5, y: -0.46153846}
+    pivot: {x: 0.5, y: 0.46153846}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -257,7 +257,7 @@ ScriptedImporter:
     uvTransform: {x: 100, y: 49}
   - name: bat_Frame_7
     originalName: 
-    pivot: {x: 0.5, y: -0.3846154}
+    pivot: {x: 0.5, y: 0.53846157}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -277,7 +277,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 70}
   - name: bat_Frame_8
     originalName: 
-    pivot: {x: 0.5, y: -0.46153846}
+    pivot: {x: 0.5, y: 0.46153846}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -297,7 +297,7 @@ ScriptedImporter:
     uvTransform: {x: 96, y: 26}
   - name: bat_Frame_9
     originalName: 
-    pivot: {x: 0.5, y: -0.5384615}
+    pivot: {x: 0.5, y: 0.3846154}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -317,7 +317,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 49}
   - name: bat_Frame_10
     originalName: 
-    pivot: {x: 0.5, y: -0.5384615}
+    pivot: {x: 0.5, y: 0.3846154}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -337,7 +337,7 @@ ScriptedImporter:
     uvTransform: {x: 36, y: 49}
   - name: bat_Frame_11
     originalName: 
-    pivot: {x: 0.5, y: -0.61538464}
+    pivot: {x: 0.5, y: 0.3076923}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -357,7 +357,7 @@ ScriptedImporter:
     uvTransform: {x: 68, y: 49}
   - name: bat_Frame_12
     originalName: 
-    pivot: {x: 0.5, y: -0.5}
+    pivot: {x: 0.5, y: 0.35714287}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -377,7 +377,7 @@ ScriptedImporter:
     uvTransform: {x: 36, y: 4}
   - name: bat_Frame_13
     originalName: 
-    pivot: {x: 0.5, y: -0.33333334}
+    pivot: {x: 0.5, y: 0.4666667}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -516,6 +516,39 @@ ScriptedImporter:
       spriteId: f72044024ace44a99b8c427ae8456f1e
     linkedCells: []
     parentIndex: -1
-  platformSettings: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 

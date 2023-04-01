@@ -56,7 +56,7 @@ public class SlowlyDie : MonoBehaviour
 
   private void GameOver()
   {
-    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    StartCoroutine(LevelLoader.ReloadCurrentLevelRoutine());
   }
 
   public void AddToFullness(float amt)

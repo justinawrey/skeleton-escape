@@ -9,7 +9,7 @@ Physics2DSettings:
   serializedVersion: 6
 >>>>>>> ed03322 (test)
   m_Gravity: {x: 0, y: -9.81}
-  m_DefaultMaterial: {fileID: 0}
+  m_DefaultMaterial: {fileID: 6200000, guid: c718db8d1cd8544cea1db65fe6825a06, type: 2}
   m_VelocityIterations: 8
   m_PositionIterations: 3
   m_VelocityThreshold: 1

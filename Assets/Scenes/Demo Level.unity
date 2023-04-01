@@ -29104,10 +29104,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.8072917
+    y: -0.06481481
+    width: 0.16666667
+    height: 0.16666666
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -29646,11 +29646,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3093692541779541297, guid: ce739a99e6b384d6497c06a143c2349a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.0098
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3093692541779541297, guid: ce739a99e6b384d6497c06a143c2349a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.5049
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 3093692541779541297, guid: ce739a99e6b384d6497c06a143c2349a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -33339,13 +33339,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4102953931989697240, guid: 00cd1b2e3a21d4e6789f49b0780c48bf, type: 3}
+      propertyPath: logStateContinuously
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4102953931989697246, guid: 00cd1b2e3a21d4e6789f49b0780c48bf, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4102953931989697246, guid: 00cd1b2e3a21d4e6789f49b0780c48bf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 4102953931989697246, guid: 00cd1b2e3a21d4e6789f49b0780c48bf, type: 3}
       propertyPath: m_LocalPosition.y
